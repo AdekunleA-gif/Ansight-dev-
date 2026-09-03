@@ -1,0 +1,299 @@
+/* ==========================================================================
+   COMPONENT STYLES & RESPONSIVE DESIGN (PHASE 8 & 9)
+   ========================================================================== */
+
+/* Utility Classes */
+.py-8 { padding-top: var(--space-8); padding-bottom: var(--space-8); }
+.mt-8 { margin-top: var(--space-8); }
+.mb-2 { margin-bottom: var(--space-2); }
+.text-center { text-align: center; }
+.flex { display: flex; }
+.flex-center { justify-content: center; align-items: center; }
+.border-bottom { border-bottom: 1px solid var(--clr-border); }
+
+/* ----------------------------------------------------------------------
+   Hero Background Image
+   ---------------------------------------------------------------------- */
+.hero-section {
+    background-image: linear-gradient(rgba(4, 8, 20, 0.8), rgba(4, 8, 20, 0.95)), url('../assets/images/geospatial_network_hero_1788459788634.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* ----------------------------------------------------------------------
+   Process Flow (Mobile First)
+   ---------------------------------------------------------------------- */
+.process-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+}
+.process-step {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+.step-node {
+    width: 12px; height: 12px;
+    background-color: var(--clr-cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--clr-cyan-glow);
+}
+.step-label {
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+}
+.step-connector {
+    width: 2px; height: 30px;
+    background-color: var(--clr-border);
+}
+
+@media (min-width: 768px) {
+    .process-flow {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .step-connector {
+        height: 2px; width: 40px;
+        flex-grow: 1;
+        margin: 0 var(--space-4);
+    }
+}
+
+/* ----------------------------------------------------------------------
+   Capabilities Split Layout
+   ---------------------------------------------------------------------- */
+.capabilities-split-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+}
+.capabilities-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+.capability-item {
+    padding: var(--space-4);
+    border-left: 2px solid var(--clr-border);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+.capability-item h3 { margin-bottom: var(--space-1); font-size: var(--font-size-lg); }
+.capability-item p { margin-bottom: 0; font-size: var(--font-size-sm); }
+
+.capability-item:hover, .capability-item.active {
+    border-left-color: var(--clr-cyan);
+    background-color: rgba(6, 182, 212, 0.05);
+}
+.capability-item.active h3 { color: var(--clr-cyan); }
+
+@media (min-width: 1024px) {
+    .capabilities-split-layout {
+        grid-template-columns: 1fr 1.5fr;
+    }
+    .capabilities-visual {
+        position: sticky;
+        top: 100px; /* Offset for header */
+    }
+}
+
+/* ----------------------------------------------------------------------
+   Solutions Tabs Layout
+   ---------------------------------------------------------------------- */
+.solutions-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+.solutions-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+.solution-tab {
+    background: var(--clr-surface-100);
+    border: 1px solid var(--clr-border);
+    padding: var(--space-3) var(--space-4);
+    color: var(--clr-text-secondary);
+    font-family: var(--font-family-sans);
+    font-weight: var(--font-weight-medium);
+    text-align: left;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+.solution-tab:hover { background: var(--clr-surface-200); }
+.solution-tab.active {
+    background: var(--clr-cyan);
+    color: var(--clr-navy-900);
+    border-color: var(--clr-cyan);
+}
+.solution-panel {
+    display: none;
+    background: var(--clr-surface-100);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+.solution-panel.active {
+    display: grid;
+    grid-template-columns: 1fr;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+.solution-content { padding: var(--space-6); }
+.solution-visual {
+    min-height: 250px;
+    background: var(--clr-navy-700);
+    border-top: 1px solid var(--clr-border);
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .solutions-tabs {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .solution-panel.active {
+        grid-template-columns: 1fr 1fr;
+    }
+    .solution-visual {
+        border-top: none;
+        border-left: 1px solid var(--clr-border);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ----------------------------------------------------------------------
+   Experience Timeline
+   ---------------------------------------------------------------------- */
+.experience-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 16px; /* offset for mobile */
+    width: 2px;
+    background-color: var(--clr-border);
+}
+.experience-node {
+    position: relative;
+    padding-left: 48px;
+}
+.exp-line .node-point {
+    position: absolute;
+    left: 11px; top: 24px;
+    background-color: var(--clr-geo-blue);
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+}
+.exp-visual { display: none; }
+
+@media (min-width: 1024px) {
+    .experience-timeline::before { left: 50%; transform: translateX(-50%); }
+    .experience-node {
+        padding-left: 0;
+        display: grid;
+        grid-template-columns: 1fr 40px 1fr;
+        align-items: center;
+    }
+    .exp-line {
+        display: flex;
+        justify-content: center;
+    }
+    .exp-line .node-point {
+        position: static;
+    }
+    .experience-node.align-left .exp-content { grid-column: 1; }
+    .experience-node.align-left .exp-visual { grid-column: 3; }
+    .experience-node.align-right .exp-content { grid-column: 3; }
+    .experience-node.align-right .exp-visual { grid-column: 1; }
+    .exp-visual {
+        display: block;
+        height: 200px;
+        background: var(--clr-surface-100);
+        border: 1px solid var(--clr-border);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+    }
+}
+
+/* ----------------------------------------------------------------------
+   Accessibility: Reduced Motion
+   ---------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ----------------------------------------------------------------------
+   Responsive Navigation Menu
+   ---------------------------------------------------------------------- */
+.main-nav {
+    display: none;
+    position: absolute;
+    top: 80px; left: 0; right: 0;
+    background-color: rgba(10, 15, 28, 0.98);
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--clr-border);
+    flex-direction: column;
+    align-items: center;
+}
+.main-nav.is-open {
+    display: flex;
+}
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+}
+.mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px; height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+}
+.mobile-menu-toggle span {
+    width: 100%; height: 2px;
+    background-color: var(--clr-text-primary);
+    transition: all var(--transition-fast);
+}
+.header-cta { display: none; }
+
+@media (min-width: 768px) {
+    .main-nav {
+        display: flex;
+        position: static;
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        flex-direction: row;
+    }
+    .nav-links {
+        flex-direction: row;
+        gap: var(--space-8);
+    }
+    .mobile-menu-toggle { display: none; }
+    .header-cta { display: inline-flex; }
+}

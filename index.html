@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Performance -->
+    <title>Ansight | Geospatial Analytics & Location Intelligence</title>
+    <meta name="description" content="Ansight provides geospatial analytics, data engineering, and location intelligence to enterprise and public-sector organizations. We solve complex spatial challenges.">
+    <meta name="keywords" content="geospatial analytics, location intelligence, GIS, data engineering, site selection, ArcGIS, public sector">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Ansight | Geospatial Analytics">
+    <meta property="og:description" content="Turn fragmented spatial data into decision-ready insight. Ansight delivers rigorous GIS engineering.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ansight.com">
+    <!-- <meta property="og:image" content="https://ansight.com/assets/images/og-image.jpg"> -->
+    
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <header class="site-header" role="banner">
+        <div class="container nav-container">
+            <a href="#home" class="logo" style="color: var(--clr-text-primary); font-weight: 700; font-size: 1.25rem;" aria-label="Ansight Home">
+                <span data-config="company-name">Ansight</span>
+            </a>
+            <nav class="main-nav" aria-label="Primary Navigation">
+                <div class="nav-links">
+                    <!-- Nav links injected via JS -->
+                </div>
+            </nav>
+            <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle Navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <a href="#contact" class="btn btn-primary header-cta" aria-label="Start a Project with Ansight">Start a Project</a>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section id="home" class="section hero-section" style="min-height: 100vh; display: flex; align-items: center; position: relative;">
+            <!-- Decorative background, hidden from screen readers -->
+            <div class="bg-map-pattern" style="position: absolute; inset: 0; z-index: -1;" aria-hidden="true"></div>
+            
+            <div class="container">
+                <div class="hero-content" style="max-width: 800px;">
+                    <h1 class="hero-title" data-config="hero-title">Turn location data into decisions.</h1>
+                    <p class="hero-subtitle" style="font-size: var(--font-size-xl); margin-bottom: var(--space-8);" data-config="company-desc">Ansight provides geospatial analytics, data engineering, and location intelligence to enterprise and public-sector organizations. We solve complex spatial challenges with rigorous QA/QC and automated workflows.</p>
+                    <div class="hero-actions" style="display: flex; gap: var(--space-4);">
+                        <a href="#capabilities" class="btn btn-primary" data-config="cta-primary">Explore Capabilities</a>
+                        <a href="#contact" class="btn btn-outline" data-config="cta-secondary">Discuss a Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02 Experience Credibility Ribbon -->
+        <section class="section-surface py-8 border-bottom" aria-label="Trusted Enterprise Experience">
+            <div class="container">
+                <p class="text-center mb-2" style="color: var(--clr-text-secondary); font-size: var(--font-size-sm); text-transform: uppercase; letter-spacing: 0.1em;">Delivering sophisticated location intelligence alongside enterprise organizations:</p>
+                <div class="flex flex-center" style="display: flex; justify-content: center; gap: var(--space-8); flex-wrap: wrap; margin-top: var(--space-4); opacity: 0.7;">
+                    <span style="font-weight: 700; font-size: 1.25rem;">AWS</span>
+                    <span style="font-weight: 700; font-size: 1.25rem;">Esri</span>
+                    <span style="font-weight: 700; font-size: 1.25rem;">Tennessee State University</span>
+                    <span style="font-weight: 700; font-size: 1.25rem;">Hazen and Sawyer</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Flow -->
+        <section class="section section-surface py-8" aria-labelledby="process-heading">
+            <h2 id="process-heading" class="visually-hidden" style="display:none;">Our Process</h2>
+            <div class="container">
+                <div id="process-flow-container"></div>
+            </div>
+        </section>
+
+        <!-- Capabilities Section -->
+        <section id="capabilities" class="section" aria-labelledby="capabilities-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="capabilities-heading">Technical execution backed by enterprise delivery standards.</h2>
+                </div>
+                <div class="capabilities-split-layout grid grid-2">
+                    <div id="capabilities-list" class="capabilities-sidebar" role="list"></div>
+                    <div class="capabilities-visual map-visual-container" aria-hidden="true">
+                        <div class="bg-map-pattern" style="height: 100%; min-height: 400px; border-radius: var(--radius-lg); border: 1px solid var(--clr-border);"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section id="solutions" class="section section-surface" aria-labelledby="solutions-heading">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 id="solutions-heading">Applying location intelligence to specific organizational requirements.</h2>
+                </div>
+                <div class="solutions-container">
+                    <div id="solutions-tabs" class="solutions-tabs" role="tablist" aria-label="Industry Solutions"></div>
+                    <div id="solutions-content" class="solutions-content"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section" aria-labelledby="experience-heading">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 id="experience-heading">Ansight is a newly established consultancy built on a foundation of rigorous enterprise delivery.</h2>
+                </div>
+                <div id="experience-timeline" class="experience-timeline"></div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section section-surface" aria-labelledby="contact-heading">
+            <div class="container">
+                <div class="grid grid-2">
+                    <div class="contact-info">
+                        <h2 id="contact-heading" data-config="final-cta-headline">Have a location-based challenge?</h2>
+                        <p data-config="final-cta-sub">Ansight is positioned to support target agencies, localized commands, and enterprise clients with rigorous spatial data management and location intelligence.</p>
+                        
+                        <article class="card mt-8" aria-labelledby="founder-name">
+                            <h3 id="founder-name" data-config="founder-name">Adeyinka Adekunle</h3>
+                            <p class="tag" aria-label="Role" data-config="founder-role">Founder / Principal Consultant</p>
+                            <p data-config="founder-bio">Combining platform engineering with operational delivery, Adeyinka founded Ansight to provide organizations with highly accurate, decision-ready spatial data.</p>
+                        </article>
+                        
+                        <ul style="margin-top: var(--space-8); padding-left: 0; list-style: none;" aria-label="Corporate Data">
+                            <li><strong>Founded:</strong> <span data-config="company-founded">2026</span></li>
+                            <li><strong>Location:</strong> <span data-config="company-location">Bloomfield, New Jersey</span></li>
+                            <li><strong>NAICS Codes:</strong> <span data-config="company-naics">541370, 541511, 541690</span></li>
+                        </ul>
+                    </div>
+                    <div class="contact-form-container">
+                        <form class="card" aria-label="Project Inquiry Form">
+                            <div class="form-group">
+                                <label class="form-label" for="name">Name <span aria-hidden="true" style="color:var(--clr-amber);">*</span></label>
+                                <input type="text" id="name" name="name" class="form-control" required aria-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">Organization Email <span aria-hidden="true" style="color:var(--clr-amber);">*</span></label>
+                                <input type="email" id="email" name="email" class="form-control" required aria-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="reqs">Project Requirements / Spatial Data Challenges <span aria-hidden="true" style="color:var(--clr-amber);">*</span></label>
+                                <textarea id="reqs" name="reqs" class="form-control" rows="5" required aria-required="true"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;" data-config="final-cta-btn">Start a Conversation</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer section" role="contentinfo">
+        <div class="container">
+            <p data-config="copyright">&copy; 2026 Ansight. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="js/main.js" defer></script>
+</body>
+</html>
