@@ -80,27 +80,27 @@ export const solutionsData = [
 
 export const experienceData = [
     {
-        org: "AWS",
-        role: "Location Analytics for Global Real Estate",
-        desc: "Executed site selection analytics across 10+ EMEA markets, enabling transaction managers to independently assess site feasibility.",
+        org: "Location Analytics",
+        role: "Global Real Estate Strategy",
+        desc: "Executed rigorous site selection analytics across international markets, empowering transaction managers to independently assess site feasibility with high-fidelity spatial models.",
         align: "left"
     },
     {
-        org: "Esri",
-        role: "Enterprise GIS Enablement & Product Engineering",
-        desc: "Engineered native geospatial features for ArcGIS for Microsoft 365, utilized by millions of users. Delivered enterprise GIS enablement for utilities, retail, and logistics sectors.",
+        org: "Enterprise GIS Enablement",
+        role: "Product Engineering & Automation",
+        desc: "Engineered native geospatial features and delivered enterprise-grade GIS infrastructure for utilities, retail, and logistics sectors, streamlining complex workflows.",
         align: "right"
     },
     {
-        org: "Tennessee State University",
-        role: "Spatial Analysis & Community Planning",
-        desc: "Conducted suitability modeling and spatial research for localized community and site planning initiatives.",
+        org: "Spatial Research",
+        role: "Community Planning & Suitability",
+        desc: "Conducted advanced suitability modeling and spatial research to support localized community development and strategic site planning initiatives.",
         align: "left"
     },
     {
-        org: "Hazen and Sawyer",
+        org: "Data Architecture",
         role: "Environmental Engineering Mapping",
-        desc: "Provided spatial mapping and data support for critical water and wastewater infrastructure projects.",
+        desc: "Provided critical spatial mapping and infrastructure data management to support large-scale water and wastewater engineering projects.",
         align: "right"
     }
 ];

@@ -41,11 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (header) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                header.style.background = 'rgba(10, 15, 28, 0.95)';
-                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.5)';
+                header.classList.add('scrolled');
             } else {
-                header.style.background = 'rgba(10, 15, 28, 0.85)';
-                header.style.boxShadow = 'none';
+                header.classList.remove('scrolled');
             }
         });
     }
@@ -75,50 +73,22 @@ document.addEventListener('DOMContentLoaded', () => {
         processContainer.innerHTML = createProcessFlow(processSteps);
     }
 
-    // 4. Render Capabilities (Split Screen UX)
+    // 4. Render Capabilities (Grid Layout)
     const capabilitiesList = document.getElementById('capabilities-list');
     if (capabilitiesList) {
         capabilitiesList.innerHTML = capabilitiesData.map((data, idx) => createCapabilityItem(data, idx)).join('');
-        
-        const items = document.querySelectorAll('.capability-item');
-        items.forEach(item => {
-            const activateItem = () => {
-                items.forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
-            };
-            item.addEventListener('mouseenter', activateItem);
-            item.addEventListener('focus', activateItem);
-        });
     }
 
-    // 5. Render Solutions (Tabs UX)
-    const solutionsTabs = document.getElementById('solutions-tabs');
+    // 5. Render Solutions (Grid Layout)
     const solutionsContent = document.getElementById('solutions-content');
-    if (solutionsTabs && solutionsContent) {
-        solutionsTabs.innerHTML = solutionsData.map((data, idx) => createSolutionTab(data, idx)).join('');
+    if (solutionsContent) {
         solutionsContent.innerHTML = solutionsData.map((data, idx) => createSolutionPanel(data, idx)).join('');
-        
-        const tabs = document.querySelectorAll('.solution-tab');
-        const panels = document.querySelectorAll('.solution-panel');
-        
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
-                panels.forEach(p => { p.classList.remove('active'); p.hidden = true; });
-                
-                tab.classList.add('active');
-                tab.setAttribute('aria-selected', 'true');
-                const targetPanel = document.getElementById(tab.dataset.target);
-                targetPanel.classList.add('active');
-                targetPanel.hidden = false;
-            });
-        });
     }
 
-    // 6. Render Experience (Timeline UX)
-    const experienceTimeline = document.getElementById('experience-timeline');
-    if (experienceTimeline) {
-        experienceTimeline.innerHTML = experienceData.map(data => createExperienceNode(data)).join('');
+    // 6. Render Experience (Grid Layout)
+    const experienceList = document.getElementById('experience-list');
+    if (experienceList) {
+        experienceList.innerHTML = experienceData.map((data, idx) => createExperienceNode(data, idx)).join('');
     }
 
     // 7. Smooth scroll via event delegation (Bug #8 fix)
@@ -134,4 +104,24 @@ document.addEventListener('DOMContentLoaded', () => {
             target.focus();
         }
     });
+
+    // 8. Intersection Observer for Scroll Reveals
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    setTimeout(() => {
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach(el => observer.observe(el));
+    }, 100);
 });
