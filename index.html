@@ -24,18 +24,23 @@
     <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-    <!-- Global Glow Blob -->
-    <div class="glow-blob" style="top: -10%; left: -5%; width: 50vw; height: 50vw; background: var(--clr-primary);"></div>
-    <div class="glow-blob" style="bottom: 20%; right: -10%; width: 40vw; height: 40vw; background: var(--clr-accent);"></div>
+    <!-- Global Glow Ambient Highlights -->
+    <div class="glow-blob" style="top: -10%; left: -5%; width: 50vw; height: 50vw; background: var(--clr-olive-green); opacity: 0.08;"></div>
+    <div class="glow-blob" style="bottom: 20%; right: -10%; width: 40vw; height: 40vw; background: var(--clr-amber); opacity: 0.06;"></div>
 
     <header class="site-header" role="banner">
         <div class="nav-container">
-            <a href="#home" class="logo" style="color: var(--clr-text-primary); font-weight: 700; font-size: 1.5rem;" aria-label="Ansight Home">
-                <span data-config="company-name">Ansight</span><span style="color: var(--clr-primary);">.</span>
+            <a href="#home" class="logo" style="color: var(--clr-deep-olive); font-weight: 700; font-size: 1.5rem;" aria-label="Ansight Home">
+                <span data-config="company-name">Ansight</span><span style="color: var(--clr-amber);">.</span>
             </a>
             <nav id="main-nav" class="main-nav" aria-label="Primary Navigation">
                 <div class="nav-links">
-                    <!-- Nav links injected via JS -->
+                    <a href="#home" class="nav-item active">Home</a>
+                    <a href="#process" class="nav-item">Process</a>
+                    <a href="#capabilities" class="nav-item">Capabilities</a>
+                    <a href="#solutions" class="nav-item">Solutions</a>
+                    <a href="#experience" class="nav-item">Experience</a>
+                    <a href="#contact" class="nav-item">Contact</a>
                 </div>
             </nav>
             <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle Navigation">
@@ -46,105 +51,247 @@
     </header>
 
     <main id="main-content" role="main">
-        <!-- Hero Section -->
-        <section id="home" class="section hero-section">
-            <div class="container">
-                <div class="hero-content reveal" style="max-width: 800px; padding-top: var(--space-12);">
+        <!-- Hero Section — Full-Screen Slideshow -->
+        <section id="home" class="section hero-section" aria-label="Hero Slideshow">
+
+            <!-- Slideshow Backgrounds -->
+            <div class="hero-slideshow" aria-hidden="true">
+                <div class="hero-slide active" style="background-image: url('assets/images/nasa-yZygONrUBe8-unsplash.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('assets/images/nasa-fDSqEWLRNFE-unsplash.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('assets/images/spacex-VBNb52J8Trk-unsplash.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('assets/images/matvey-logachev-98Yq3gMGa64-unsplash.jpg');"></div>
+            </div>
+
+            <!-- Dark overlay for text legibility -->
+            <div class="hero-overlay" aria-hidden="true"></div>
+
+            <!-- Hero Content -->
+            <div class="container" style="position: relative; z-index: 3;">
+                <div class="hero-content reveal">
+                    <div class="section-badge hero-badge">
+                        <span class="badge-dot" aria-hidden="true"></span>
+                        <span>Location Intelligence &amp; Spatial Analytics</span>
+                    </div>
                     <h1 class="hero-title" data-config="hero-title">Turn location data into decisions</h1>
-                    <p class="hero-subtitle reveal delay-1" style="font-size: var(--font-size-xl); margin-bottom: var(--space-6);" data-config="company-desc"></p>
-                    <div class="hero-actions reveal delay-2" style="display: flex; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-6);">
+                    <p class="hero-subtitle reveal delay-1" data-config="company-desc">
+                        Ansight provides geospatial analytics, data engineering, and location intelligence to enterprise and public-sector organizations. We solve complex spatial challenges with rigorous QA/QC and automated workflows.
+                    </p>
+                    <div class="hero-actions reveal delay-2">
                         <a href="#capabilities" class="btn btn-primary" data-config="cta-primary">Explore Capabilities</a>
-                        <a href="#contact" class="btn btn-outline" data-config="cta-secondary">Discuss a Project</a>
+                        <a href="#contact" class="btn btn-outline hero-btn-outline" data-config="cta-secondary">Discuss a Project</a>
                     </div>
                 </div>
             </div>
+
+            <!-- Slide Indicators -->
+            <div class="hero-dots" aria-label="Slideshow navigation" role="tablist">
+                <button class="hero-dot active" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+                <button class="hero-dot" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+                <button class="hero-dot" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+                <button class="hero-dot" role="tab" aria-selected="false" aria-label="Slide 4"></button>
+            </div>
         </section>
 
-        <!-- Trusted Enterprise Experience Ribbon Removed per QA -->
-
-        <!-- Process Flow -->
-        <section class="section section-surface py-8" aria-labelledby="process-heading">
-            <h2 id="process-heading" class="visually-hidden">Our Process</h2>
+        <!-- Process Flow (Methodology Tab) -->
+        <section id="process" class="section section-surface" aria-labelledby="process-heading">
             <div class="container">
-                <div id="process-flow-container"></div>
+                <div class="section-header reveal">
+                    <div class="section-badge">
+                        <span class="badge-dot" aria-hidden="true"></span>
+                        <span>Our Methodology</span>
+                    </div>
+                    <h2 id="process-heading">End-to-End Geospatial Pipeline</h2>
+                    <p class="section-desc">A structured technical lifecycle ensuring data integrity, spatial precision, and decision-grade deliverables</p>
+                </div>
+                <div id="process-flow-container">
+                    <div class="process-flow" role="list">
+                        <div class="process-step reveal" role="listitem">
+                            <div class="step-node" aria-hidden="true"></div>
+                            <span class="step-label">Data Integration</span>
+                        </div>
+                        <div class="step-connector" aria-hidden="true"></div>
+                        <div class="process-step reveal delay-1" role="listitem">
+                            <div class="step-node" aria-hidden="true"></div>
+                            <span class="step-label">Geospatial Engineering</span>
+                        </div>
+                        <div class="step-connector" aria-hidden="true"></div>
+                        <div class="process-step reveal delay-2" role="listitem">
+                            <div class="step-node" aria-hidden="true"></div>
+                            <span class="step-label">Spatial Analysis</span>
+                        </div>
+                        <div class="step-connector" aria-hidden="true"></div>
+                        <div class="process-step reveal delay-3" role="listitem">
+                            <div class="step-node" aria-hidden="true"></div>
+                            <span class="step-label">Visualization</span>
+                        </div>
+                        <div class="step-connector" aria-hidden="true"></div>
+                        <div class="process-step reveal delay-3" role="listitem">
+                            <div class="step-node" aria-hidden="true"></div>
+                            <span class="step-label">Decision Ready</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Capabilities Section -->
         <section id="capabilities" class="section" aria-labelledby="capabilities-heading">
             <div class="container">
-                <div class="section-header reveal text-center">
+                <div class="section-header reveal">
+                    <div class="section-badge">
+                        <span class="badge-dot" aria-hidden="true"></span>
+                        <span>Capabilities</span>
+                    </div>
                     <h2 id="capabilities-heading">Technical execution backed by enterprise delivery standards</h2>
+                    <p class="section-desc">Enterprise GIS engineering, spatial geodatabase architecture, and analytical modeling designed for scalability</p>
                 </div>
-                <div id="capabilities-list" class="grid grid-3" role="list"></div>
+                <div id="capabilities-list" class="grid grid-3" role="list">
+                    <div class="capability-item reveal delay-1" role="listitem" tabindex="0">
+                        <h3>Location Analytics & Site Selection</h3>
+                        <p>Execute demographic, socioeconomic, and trade-area analysis. We build suitability models using ArcGIS Business Analyst to drive market expansion and site feasibility.</p>
+                    </div>
+                    <div class="capability-item reveal delay-2" role="listitem" tabindex="0">
+                        <h3>GIS Data Engineering & QA/QC</h3>
+                        <p>Design schemas, deploy feature services, and enforce strict data validation across ArcGIS Pro, ArcGIS Enterprise, and QGIS environments.</p>
+                    </div>
+                    <div class="capability-item reveal delay-3" role="listitem" tabindex="0">
+                        <h3>Spatial Database Management</h3>
+                        <p>Architect and administer enterprise geodatabases. We handle spatial ETL, PostgreSQL/PostGIS, SQL Server integration, and metadata governance.</p>
+                    </div>
+                    <div class="capability-item reveal delay-1" role="listitem" tabindex="0">
+                        <h3>Enterprise GIS Enablement</h3>
+                        <p>Translate complex spatial workflows into accessible systems. We define symbology standards and deliver targeted stakeholder training.</p>
+                    </div>
+                    <div class="capability-item reveal delay-2" role="listitem" tabindex="0">
+                        <h3>Product Development & Automation</h3>
+                        <p>Engineer native geospatial features and automate manual processes using Python, SQL, Arcade, and ArcGIS Notebooks.</p>
+                    </div>
+                    <div class="capability-item reveal delay-3" role="listitem" tabindex="0">
+                        <h3>Infrastructure & Utility Mapping</h3>
+                        <p>Map pipeline and utility networks. We transform complex utility data into presentation-ready spatial deliverables and accurate network models.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Solutions Section -->
         <section id="solutions" class="section section-surface" aria-labelledby="solutions-heading">
             <div class="container">
-                <div class="section-header text-center reveal">
+                <div class="section-header reveal">
+                    <div class="section-badge">
+                        <span class="badge-dot" aria-hidden="true"></span>
+                        <span>Solutions</span>
+                    </div>
                     <h2 id="solutions-heading">Applying location intelligence to specific organizational requirements</h2>
+                    <p class="section-desc">Custom spatial data solutions engineered to solve high-stakes challenges across core industry sectors</p>
                 </div>
-                <div id="solutions-content" class="grid grid-2 reveal delay-1"></div>
+                <div id="solutions-content" class="grid grid-2">
+                    <div class="capability-item reveal delay-1">
+                        <h3>Real Estate & Retail</h3>
+                        <p>Assess global site feasibility and market potential. We process complex demographic and trade-area data to guide expansion strategies.</p>
+                    </div>
+                    <div class="capability-item reveal delay-2">
+                        <h3>Public Sector & Community Planning</h3>
+                        <p>Support government agencies and commands with suitability modeling, environmental analysis, and spatial data governance.</p>
+                    </div>
+                    <div class="capability-item reveal delay-1">
+                        <h3>Enterprise Technology</h3>
+                        <p>Deploy GIS natively within existing enterprise ecosystems. We integrate geospatial capabilities directly into platforms like Microsoft 365.</p>
+                    </div>
+                    <div class="capability-item reveal delay-2">
+                        <h3>Infrastructure & Utilities</h3>
+                        <p>Establish accurate, validated systems of record for water, wastewater, and utility networks through rigorous spatial mapping.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Experience Section -->
         <section id="experience" class="section" aria-labelledby="experience-heading">
             <div class="container">
-                <div class="section-header text-center reveal">
+                <div class="section-header reveal">
+                    <div class="section-badge">
+                        <span class="badge-dot" aria-hidden="true"></span>
+                        <span>Experience</span>
+                    </div>
                     <h2 id="experience-heading">Ansight is built on a foundation of rigorous enterprise delivery</h2>
+                    <p class="section-desc">Demonstrated operational consulting and spatial analysis delivered across high-consequence industries</p>
                 </div>
-                <div id="experience-list" class="grid grid-2"></div>
+                <div id="experience-list" class="grid grid-2">
+                    <article class="capability-item reveal delay-1">
+                        <span class="tag mb-2">Location Analytics</span>
+                        <h4>Global Real Estate Strategy</h4>
+                        <p>Executed rigorous site selection analytics across international markets, empowering transaction managers to independently assess site feasibility with high-fidelity spatial models.</p>
+                    </article>
+                    <article class="capability-item reveal delay-2">
+                        <span class="tag mb-2">Enterprise GIS Enablement</span>
+                        <h4>Product Engineering & Automation</h4>
+                        <p>Engineered native geospatial features and delivered enterprise-grade GIS infrastructure for utilities, retail, and logistics sectors, streamlining complex workflows.</p>
+                    </article>
+                    <article class="capability-item reveal delay-1">
+                        <span class="tag mb-2">Spatial Research</span>
+                        <h4>Community Planning & Suitability</h4>
+                        <p>Conducted advanced suitability modeling and spatial research to support localized community development and strategic site planning initiatives.</p>
+                    </article>
+                    <article class="capability-item reveal delay-2">
+                        <span class="tag mb-2">Data Architecture</span>
+                        <h4>Environmental Engineering Mapping</h4>
+                        <p>Provided critical spatial mapping and infrastructure data management to support large-scale water and wastewater engineering projects.</p>
+                    </article>
+                </div>
             </div>
         </section>
 
         <!-- Contact Section -->
         <section id="contact" class="section section-surface" aria-labelledby="contact-heading">
             <div class="container">
-                <div class="grid grid-2">
+                <div class="section-header reveal">
+                    <div class="section-badge">
+                        <span class="badge-dot" aria-hidden="true"></span>
+                        <span>Contact Us</span>
+                    </div>
+                    <h2 id="contact-heading" data-config="final-cta-headline">Have a location-based challenge? Let's connect</h2>
+                    <p class="section-desc" data-config="final-cta-sub">Ansight is positioned to support target agencies, localized commands, and enterprise clients with rigorous spatial data management and location intelligence</p>
+                </div>
+                <div class="grid grid-2 contact-grid">
                     <div class="contact-info reveal" style="display: flex; flex-direction: column; justify-content: center;">
-                        <h2 id="contact-heading" data-config="final-cta-headline">Have a location-based challenge?</h2>
-                        <p data-config="final-cta-sub">Ansight is positioned to support target agencies, localized commands, and enterprise clients with rigorous spatial data management and location intelligence.</p>
-                        
-                        <article class="card mt-8" aria-labelledby="founder-name" style="background: rgba(255,255,255,0.02); border: 1px solid var(--clr-border); padding: var(--space-8); border-radius: var(--radius-lg); position: relative; overflow: hidden;">
-                            <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: var(--clr-primary); opacity: 0.1; filter: blur(40px); border-radius: 50%;"></div>
-                            <h3 id="founder-name" data-config="founder-name" style="color: var(--clr-primary); margin-bottom: var(--space-1); font-size: var(--font-size-2xl);">Adeyinka Adekunle</h3>
-                            <p aria-label="Role" data-config="founder-role" style="font-size: var(--font-size-sm); color: var(--clr-text-secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-4); border-bottom: 1px solid var(--clr-border); padding-bottom: var(--space-4);">Principal | Ansight</p>
+                        <article class="card contact-card-founder" aria-labelledby="founder-name">
+                            <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: var(--clr-amber); opacity: 0.15; filter: blur(40px); border-radius: 50%;"></div>
+                            <h3 id="founder-name" data-config="founder-name" style="color: #FFFFFF; margin-bottom: var(--space-1); font-size: var(--font-size-2xl);">Adeyinka Adekunle</h3>
+                            <p aria-label="Role" data-config="founder-role" style="font-size: var(--font-size-sm); color: var(--clr-warm-ivory); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-4); border-bottom: 1px solid rgba(232, 222, 192, 0.2); padding-bottom: var(--space-4); font-weight: var(--font-weight-semibold);">Principal | Ansight</p>
                             
                             <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
-                                <li style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-2);">
-                                    <span style="color: var(--clr-primary);">◈</span> <span style="font-weight: 500;">GIS Consulting & Location Intelligence</span>
+                                <li style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-3);">
+                                    <span style="color: var(--clr-amber); font-size: 1.1rem;">◈</span> <span style="font-weight: 500; color: #FFFFFF;">GIS Consulting & Location Intelligence</span>
                                 </li>
-                                <li style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-2);">
-                                    <span style="color: var(--clr-primary);">✉</span> <a href="mailto:adeyinka@ansightco.com" style="color: var(--clr-text-primary);">adeyinka@ansightco.com</a>
+                                <li style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-3);">
+                                    <span style="color: var(--clr-amber); font-size: 1.1rem;">✉</span> <a href="mailto:adeyinka@ansightco.com" style="color: var(--clr-warm-ivory);">adeyinka@ansightco.com</a>
                                 </li>
-                                <li style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-2);">
-                                    <span style="color: var(--clr-primary);">☏</span> <a href="tel:+19735671317" style="color: var(--clr-text-primary);">+1 (973) 567-1317</a>
+                                <li style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-3);">
+                                    <span style="color: var(--clr-amber); font-size: 1.1rem;">☏</span> <a href="tel:+19735671317" style="color: var(--clr-warm-ivory);">+1 (973) 567-1317</a>
                                 </li>
-                                <li style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-2);">
-                                    <span style="color: var(--clr-primary);">🌐</span> <a href="https://www.ansightco.com" target="_blank" style="color: var(--clr-text-primary);">www.ansightco.com</a>
+                                <li style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-3);">
+                                    <span style="color: var(--clr-amber); font-size: 1.1rem;">🌐</span> <a href="https://www.ansightco.com" target="_blank" rel="noopener noreferrer" style="color: var(--clr-warm-ivory);">www.ansightco.com</a>
                                 </li>
-                                <li style="display: flex; align-items: center; gap: var(--space-2);">
-                                    <span style="color: var(--clr-primary);">in</span> <a href="https://www.linkedin.com/in/adeyinka-adekunle-37162a155/" target="_blank" style="color: var(--clr-primary);">LinkedIn Profile</a>
+                                <li style="display: flex; align-items: center; gap: var(--space-3);">
+                                    <span style="color: var(--clr-amber); font-size: 1.1rem;">in</span> <a href="https://www.linkedin.com/in/adeyinka-adekunle-37162a155/" target="_blank" rel="noopener noreferrer" style="color: var(--clr-amber); font-weight: 600;">LinkedIn Profile</a>
                                 </li>
                             </ul>
                         </article>
                     </div>
                     <div class="contact-form-container reveal delay-2">
-                        <form class="card" aria-label="Project Inquiry Form" style="background: var(--clr-glass-bg); backdrop-filter: blur(10px); border: 1px solid var(--clr-border); padding: var(--space-8); border-radius: var(--radius-xl);">
+                        <form class="card" aria-label="Project Inquiry Form" style="background: var(--clr-ivory-tint); border: 1px solid var(--clr-border-card); padding: var(--space-8); border-radius: var(--radius-xl);">
                             <div class="form-group">
-                                <label class="form-label" for="name">Name <span aria-hidden="true" style="color:var(--clr-primary);">*</span></label>
-                                <input type="text" id="name" name="name" class="form-control" required aria-required="true">
+                                <label class="form-label" for="name">Name <span aria-hidden="true" style="color:var(--clr-amber);">*</span></label>
+                                <input type="text" id="name" name="name" class="form-control" required aria-required="true" placeholder="Your full name">
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="email">Organization Email <span aria-hidden="true" style="color:var(--clr-primary);">*</span></label>
-                                <input type="email" id="email" name="email" class="form-control" required aria-required="true">
+                                <label class="form-label" for="email">Organization Email <span aria-hidden="true" style="color:var(--clr-amber);">*</span></label>
+                                <input type="email" id="email" name="email" class="form-control" required aria-required="true" placeholder="name@organization.com">
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="reqs">Project Requirements / Spatial Data Challenges <span aria-hidden="true" style="color:var(--clr-primary);">*</span></label>
-                                <textarea id="reqs" name="reqs" class="form-control" rows="5" required aria-required="true"></textarea>
+                                <label class="form-label" for="reqs">Project Requirements / Spatial Data Challenges <span aria-hidden="true" style="color:var(--clr-amber);">*</span></label>
+                                <textarea id="reqs" name="reqs" class="form-control" rows="5" required aria-required="true" placeholder="Tell us about your spatial data, site selection, or GIS analysis goals..."></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width: 100%;" data-config="final-cta-btn">Start a Conversation</button>
                         </form>
@@ -154,12 +301,29 @@
         </section>
     </main>
 
-    <footer class="site-footer section" role="contentinfo" style="padding-top: var(--space-12); padding-bottom: var(--space-12); border-top: 1px solid var(--clr-border);">
+    <!-- Keyword Footer Banner (Amber Accent per Brand Guidelines) -->
+    <div class="keyword-footer-banner" role="region" aria-label="Core Competencies Banner">
+        <div class="container">
+            <div class="keyword-banner-inner">
+                <span>Location Intelligence</span>
+                <span class="bullet" aria-hidden="true">•</span>
+                <span>Geospatial Analytics</span>
+                <span class="bullet" aria-hidden="true">•</span>
+                <span>Enterprise GIS Architecture</span>
+                <span class="bullet" aria-hidden="true">•</span>
+                <span>Spatial Data Engineering</span>
+                <span class="bullet" aria-hidden="true">•</span>
+                <span>Site Selection Modeling</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer" role="contentinfo" style="padding-top: var(--space-8); padding-bottom: var(--space-8); background-color: var(--clr-deep-olive);">
         <div class="container text-center">
-            <p data-config="copyright" style="color: var(--clr-text-secondary); font-size: var(--font-size-sm);">&copy; 2026 Ansight. All rights reserved.</p>
+            <p data-config="copyright" style="color: var(--clr-warm-ivory); font-size: var(--font-size-sm); margin-bottom: 0;">&copy; 2026 Ansight. All rights reserved.</p>
         </div>
     </footer>
 
-    <script type="module" src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
