@@ -122,45 +122,4 @@ document.addEventListener('DOMContentLoaded', () => {
         const revealElements = document.querySelectorAll('.reveal');
         revealElements.forEach(el => el.classList.add('active'));
     }
-
-    // 7. Hero Slideshow — 20 second auto-advance with dot indicators
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots   = document.querySelectorAll('.hero-dot');
-    const SLIDE_DURATION = 20000; // 20 seconds
-    let currentSlide = 0;
-    let slideshowTimer = null;
-
-    function goToSlide(index) {
-        // Remove active from old slide & dot
-        slides[currentSlide].classList.remove('active');
-        dots[currentSlide].classList.remove('active');
-        dots[currentSlide].setAttribute('aria-selected', 'false');
-
-        // Set new index
-        currentSlide = (index + slides.length) % slides.length;
-
-        // Activate new slide & dot
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
-        dots[currentSlide].setAttribute('aria-selected', 'true');
-    }
-
-    function startSlideshow() {
-        if (slideshowTimer) clearInterval(slideshowTimer);
-        slideshowTimer = setInterval(() => {
-            goToSlide(currentSlide + 1);
-        }, SLIDE_DURATION);
-    }
-
-    // Dot click — manual navigation resets the timer
-    dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-            goToSlide(i);
-            startSlideshow(); // restart timer after manual click
-        });
-    });
-
-    // Start auto-advance
-    if (slides.length > 1) startSlideshow();
 });
-
