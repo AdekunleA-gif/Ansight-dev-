@@ -3,7 +3,6 @@ import { createCapabilityItem, createSolutionTab, createSolutionPanel, createExp
 
 document.addEventListener('DOMContentLoaded', () => {
     // 0. Populate Centralized Data Configuration
-    // Update basic text elements that have a specific data attribute
     const elementsToPopulate = [
         { selector: '[data-config="company-name"]', value: companyInfo.name },
         { selector: '[data-config="company-tagline"]', value: companyInfo.tagline },
@@ -37,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         copyrightEl.innerHTML = `&copy; ${new Date().getFullYear()} ${companyInfo.name}. All rights reserved.`;
     }
 
-    // 1. Header Scroll state & Mobile Menu
+    // 1. Header Scroll state
     const header = document.querySelector('.site-header');
     if (header) {
         window.addEventListener('scroll', () => {
@@ -51,23 +50,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 2. Mobile Menu Toggle
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
+    const mainNav = document.getElementById('main-nav');
     if (mobileMenuToggle && mainNav) {
         mobileMenuToggle.addEventListener('click', () => {
             const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
             mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
             mainNav.classList.toggle('is-open');
         });
+
+        // Close mobile menu when a nav link is clicked (Bug #11 fix)
+        mainNav.addEventListener('click', (e) => {
+            if (e.target.classList.contains('nav-item')) {
+                mainNav.classList.remove('is-open');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
     }
 
-    // 2. Render Process Flow
+    // 3. Render Process Flow
     const processContainer = document.getElementById('process-flow-container');
     if (processContainer) {
         processContainer.innerHTML = createProcessFlow(processSteps);
     }
 
-    // 3. Render Capabilities (Split Screen UX)
+    // 4. Render Capabilities (Split Screen UX)
     const capabilitiesList = document.getElementById('capabilities-list');
     if (capabilitiesList) {
         capabilitiesList.innerHTML = capabilitiesData.map((data, idx) => createCapabilityItem(data, idx)).join('');
@@ -83,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Render Solutions (Tabs UX)
+    // 5. Render Solutions (Tabs UX)
     const solutionsTabs = document.getElementById('solutions-tabs');
     const solutionsContent = document.getElementById('solutions-content');
     if (solutionsTabs && solutionsContent) {
@@ -107,22 +115,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Render Experience (Timeline UX)
+    // 6. Render Experience (Timeline UX)
     const experienceTimeline = document.getElementById('experience-timeline');
     if (experienceTimeline) {
         experienceTimeline.innerHTML = experienceData.map(data => createExperienceNode(data)).join('');
     }
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                target.setAttribute('tabindex', '-1');
-                target.focus();
-            }
-        });
+    // 7. Smooth scroll via event delegation (Bug #8 fix)
+    // Uses delegation so dynamically-injected nav links are captured
+    document.addEventListener('click', (e) => {
+        const anchor = e.target.closest('a[href^="#"]');
+        if (!anchor) return;
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            target.setAttribute('tabindex', '-1');
+            target.focus();
+        }
     });
 });

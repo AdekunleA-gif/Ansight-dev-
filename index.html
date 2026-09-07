@@ -30,7 +30,7 @@
             <a href="#home" class="logo" style="color: var(--clr-text-primary); font-weight: 700; font-size: 1.25rem;" aria-label="Ansight Home">
                 <span data-config="company-name">Ansight</span>
             </a>
-            <nav class="main-nav" aria-label="Primary Navigation">
+            <nav id="main-nav" class="main-nav" aria-label="Primary Navigation">
                 <div class="nav-links">
                     <!-- Nav links injected via JS -->
                 </div>
@@ -44,7 +44,7 @@
 
     <main id="main-content" role="main">
         <!-- Hero Section -->
-        <section id="home" class="section hero-section" style="min-height: 100vh; display: flex; align-items: center; position: relative;">
+        <section id="home" class="section hero-section">
             <!-- Decorative background, hidden from screen readers -->
             <div class="bg-map-pattern" style="position: absolute; inset: 0; z-index: -1;" aria-hidden="true"></div>
             
@@ -75,7 +75,7 @@
 
         <!-- Process Flow -->
         <section class="section section-surface py-8" aria-labelledby="process-heading">
-            <h2 id="process-heading" class="visually-hidden" style="display:none;">Our Process</h2>
+            <h2 id="process-heading" class="visually-hidden">Our Process</h2>
             <div class="container">
                 <div id="process-flow-container"></div>
             </div>
@@ -167,6 +167,6 @@
         </div>
     </footer>
 
-    <script type="module" src="js/main.js" defer></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>
