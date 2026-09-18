@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- SEO & Performance -->
     <title>Ansight | Geospatial Analytics & Location Intelligence</title>
     <meta name="description" content="Ansight provides geospatial analytics, data engineering, and location intelligence to enterprise and public-sector organizations. We solve complex spatial challenges.">
     <meta name="keywords" content="geospatial analytics, location intelligence, GIS, data engineering, site selection, ArcGIS, public sector">
-    
+
     <!-- Open Graph Metadata -->
     <meta property="og:title" content="Ansight | Geospatial Analytics">
     <meta property="og:description" content="Turn fragmented spatial data into decision-ready insight. Ansight delivers rigorous GIS engineering.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ansight.com">
-    
+
     <!-- Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
 </head>
@@ -51,28 +51,130 @@
     </header>
 
     <main id="main-content" role="main">
-        <!-- Hero Section -->
+
+        <!-- ============================================================
+             HERO — 60/40 split, text left + geospatial SVG right
+             ============================================================ -->
         <section id="home" class="section hero-section">
             <div class="container">
-                <div class="hero-content reveal">
-                    <div class="section-badge">
-                        <span class="badge-dot" aria-hidden="true"></span>
-                        <span>Location Intelligence &amp; Spatial Analytics</span>
+                <div class="hero-grid">
+                    <!-- Left: Text Column -->
+                    <div class="hero-text reveal">
+                        <div class="hero-coord-badge">
+                            <span class="coord-dot" aria-hidden="true"></span>
+                            <span>37.7749° N, 122.4194° W</span>
+                        </div>
+                        <h1 class="hero-title" data-config="hero-title">Turn location data into decisions</h1>
+                        <p class="hero-subtitle reveal delay-1" data-config="company-desc">
+                            Ansight provides geospatial analytics, data engineering, and location intelligence to enterprise and public-sector organizations. We solve complex spatial challenges with rigorous QA/QC and automated workflows.
+                        </p>
+                        <div class="hero-actions reveal delay-2">
+                            <a href="#capabilities" class="btn btn-primary" data-config="cta-primary">Explore Capabilities</a>
+                            <a href="#contact" class="btn-text" data-config="cta-secondary">Discuss a Project <span class="arrow" aria-hidden="true">→</span></a>
+                        </div>
                     </div>
-                    <h1 class="hero-title" data-config="hero-title">Turn location data into decisions</h1>
-                    <p class="hero-subtitle reveal delay-1" data-config="company-desc">
-                        Ansight provides geospatial analytics, data engineering, and location intelligence to enterprise and public-sector organizations. We solve complex spatial challenges with rigorous QA/QC and automated workflows.
-                    </p>
-                    <div class="hero-actions reveal delay-2">
-                        <a href="#capabilities" class="btn btn-primary" data-config="cta-primary">Explore Capabilities</a>
-                        <a href="#contact" class="btn btn-outline" data-config="cta-secondary">Discuss a Project</a>
+
+                    <!-- Right: Geospatial SVG Canvas -->
+                    <div class="hero-svg-container reveal delay-2">
+                        <svg class="hero-svg-canvas" viewBox="0 0 480 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <!-- Grid overlay -->
+                            <g class="svg-grid-fade" opacity="0.08">
+                                <line x1="0" y1="42" x2="480" y2="42" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="0" y1="84" x2="480" y2="84" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="0" y1="126" x2="480" y2="126" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="0" y1="168" x2="480" y2="168" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="0" y1="210" x2="480" y2="210" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="0" y1="252" x2="480" y2="252" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="0" y1="294" x2="480" y2="294" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="0" y1="336" x2="480" y2="336" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="0" y1="378" x2="480" y2="378" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="48" y1="0" x2="48" y2="420" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="96" y1="0" x2="96" y2="420" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="144" y1="0" x2="144" y2="420" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="192" y1="0" x2="192" y2="420" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="240" y1="0" x2="240" y2="420" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="288" y1="0" x2="288" y2="420" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="336" y1="0" x2="336" y2="420" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="384" y1="0" x2="384" y2="420" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                                <line x1="432" y1="0" x2="432" y2="420" stroke="var(--clr-deep-olive)" stroke-width="0.5"/>
+                            </g>
+
+                            <!-- Topographic contour rings -->
+                            <g class="svg-contour-ring">
+                                <ellipse cx="240" cy="200" rx="180" ry="140" stroke="var(--clr-amber)" stroke-width="1" fill="none" opacity="0.2"/>
+                                <ellipse cx="240" cy="200" rx="140" ry="105" stroke="var(--clr-amber)" stroke-width="1" fill="none" opacity="0.3"/>
+                                <ellipse cx="240" cy="200" rx="100" ry="72" stroke="var(--clr-amber)" stroke-width="1.2" fill="none" opacity="0.4"/>
+                                <ellipse cx="240" cy="200" rx="55" ry="38" stroke="var(--clr-amber)" stroke-width="1.5" fill="none" opacity="0.5"/>
+                            </g>
+
+                            <!-- Trade-area concentric rings -->
+                            <circle cx="200" cy="180" r="60" stroke="var(--clr-olive-green)" stroke-width="1" fill="none" opacity="0.25" stroke-dasharray="4 3"/>
+                            <circle cx="200" cy="180" r="40" stroke="var(--clr-olive-green)" stroke-width="1" fill="none" opacity="0.35" stroke-dasharray="4 3"/>
+                            <circle cx="200" cy="180" r="20" stroke="var(--clr-olive-green)" stroke-width="1.5" fill="none" opacity="0.5"/>
+                            <circle cx="200" cy="180" r="3" fill="var(--clr-amber)"/>
+
+                            <!-- Spatial node network -->
+                            <g>
+                                <!-- Connection lines -->
+                                <line x1="120" y1="100" x2="200" y2="180" stroke="var(--clr-olive-green)" stroke-width="1" opacity="0.3" class="svg-draw-line"/>
+                                <line x1="200" y1="180" x2="340" y2="140" stroke="var(--clr-olive-green)" stroke-width="1" opacity="0.3" class="svg-draw-line"/>
+                                <line x1="200" y1="180" x2="280" y2="300" stroke="var(--clr-olive-green)" stroke-width="1" opacity="0.3" class="svg-draw-line"/>
+                                <line x1="340" y1="140" x2="400" y2="250" stroke="var(--clr-olive-green)" stroke-width="1" opacity="0.3" class="svg-draw-line"/>
+                                <line x1="120" y1="100" x2="80" y2="260" stroke="var(--clr-olive-green)" stroke-width="1" opacity="0.2" class="svg-draw-line"/>
+                                <line x1="280" y1="300" x2="400" y2="250" stroke="var(--clr-olive-green)" stroke-width="1" opacity="0.2" class="svg-draw-line"/>
+                                <line x1="340" y1="140" x2="420" y2="80" stroke="var(--clr-olive-green)" stroke-width="1" opacity="0.2" class="svg-draw-line"/>
+                                <line x1="80" y1="260" x2="280" y2="300" stroke="var(--clr-olive-green)" stroke-width="1" opacity="0.15" class="svg-draw-line"/>
+
+                                <!-- Nodes -->
+                                <circle cx="120" cy="100" r="4" fill="var(--clr-olive-green)" class="svg-node-pulse"/>
+                                <circle cx="200" cy="180" r="5" fill="var(--clr-amber)" class="svg-node-pulse" style="animation-delay: 0.5s"/>
+                                <circle cx="340" cy="140" r="4" fill="var(--clr-olive-green)" class="svg-node-pulse" style="animation-delay: 1s"/>
+                                <circle cx="280" cy="300" r="4" fill="var(--clr-olive-green)" class="svg-node-pulse" style="animation-delay: 1.5s"/>
+                                <circle cx="400" cy="250" r="3.5" fill="var(--clr-olive-green)" class="svg-node-pulse" style="animation-delay: 0.8s"/>
+                                <circle cx="80" cy="260" r="3" fill="var(--clr-olive-green)" class="svg-node-pulse" style="animation-delay: 2s"/>
+                                <circle cx="420" cy="80" r="3" fill="var(--clr-olive-green)" class="svg-node-pulse" style="animation-delay: 1.2s"/>
+                            </g>
+
+                            <!-- Location pin markers -->
+                            <g class="svg-pin-drop">
+                                <!-- Pin 1 -->
+                                <path d="M200 168 C200 162, 206 156, 206 156 C206 156, 212 162, 212 168 C212 174, 206 178, 206 178 C206 178, 200 174, 200 168Z" fill="var(--clr-amber)" opacity="0.8" transform="translate(-6, -6)"/>
+                            </g>
+                            <g class="svg-pin-drop" style="animation-delay: 0.3s">
+                                <!-- Pin 2 -->
+                                <path d="M334 126 C334 120, 340 114, 340 114 C340 114, 346 120, 346 126 C346 132, 340 136, 340 136 C340 136, 334 132, 334 126Z" fill="var(--clr-deep-olive)" opacity="0.6"/>
+                            </g>
+
+                            <!-- Coordinate annotations -->
+                            <text x="42" y="90" fill="var(--clr-muted-olive)" font-size="9" font-family="Inter, sans-serif" opacity="0.5">37.77°N</text>
+                            <text x="380" y="340" fill="var(--clr-muted-olive)" font-size="9" font-family="Inter, sans-serif" opacity="0.5">122.42°W</text>
+                            <text x="310" y="370" fill="var(--clr-muted-olive)" font-size="8" font-family="Inter, sans-serif" opacity="0.35">TRADE AREA</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Stats strip -->
+                <div class="hero-stats reveal delay-3">
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">4</span>
+                        <span class="hero-stat-label">Industries Served</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">QA/QC</span>
+                        <span class="hero-stat-label">Enterprise-grade</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">Scale</span>
+                        <span class="hero-stat-label">Location Intelligence</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Process Flow (Methodology Tab) -->
-        <section id="process" class="section section-surface" aria-labelledby="process-heading">
+        <!-- ============================================================
+             METHODOLOGY PIPELINE — dark olive section
+             ============================================================ -->
+        <section id="process" class="section section-dark" aria-labelledby="process-heading">
             <div class="container">
                 <div class="section-header reveal">
                     <div class="section-badge">
@@ -82,39 +184,97 @@
                     <h2 id="process-heading">End-to-End Geospatial Pipeline</h2>
                     <p class="section-desc">A structured technical lifecycle ensuring data integrity, spatial precision, and decision-grade deliverables</p>
                 </div>
-                <div id="process-flow-container">
-                    <div class="process-flow" role="list">
-                        <div class="process-step reveal" role="listitem">
-                            <div class="step-node" aria-hidden="true"></div>
-                            <span class="step-label">Data Integration</span>
+                <div class="pipeline-grid">
+                    <!-- Step 01 -->
+                    <div class="pipeline-step reveal">
+                        <span class="pipeline-step-number">01</span>
+                        <div class="pipeline-step-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="8" y="12" width="32" height="6" rx="2" stroke="var(--clr-amber)" stroke-width="1.5" opacity="0.8"/>
+                                <rect x="8" y="21" width="32" height="6" rx="2" stroke="var(--clr-warm-ivory)" stroke-width="1.5" opacity="0.5"/>
+                                <rect x="8" y="30" width="32" height="6" rx="2" stroke="var(--clr-amber)" stroke-width="1.5" opacity="0.6"/>
+                                <path d="M24 10V8M24 40V38" stroke="var(--clr-warm-ivory)" stroke-width="1" opacity="0.3"/>
+                            </svg>
                         </div>
-                        <div class="step-connector" aria-hidden="true"></div>
-                        <div class="process-step reveal delay-1" role="listitem">
-                            <div class="step-node" aria-hidden="true"></div>
-                            <span class="step-label">Geospatial Engineering</span>
+                        <h3 class="pipeline-step-title">Data Integration</h3>
+                        <p class="pipeline-step-desc">Ingest, harmonize, and validate multi-source spatial datasets</p>
+                        <svg class="pipeline-connector" viewBox="0 0 40 4" aria-hidden="true"><line x1="0" y1="2" x2="40" y2="2"/></svg>
+                    </div>
+                    <!-- Step 02 -->
+                    <div class="pipeline-step reveal delay-1">
+                        <span class="pipeline-step-number">02</span>
+                        <div class="pipeline-step-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="8" stroke="var(--clr-amber)" stroke-width="1.5" opacity="0.8"/>
+                                <circle cx="24" cy="24" r="3" fill="var(--clr-amber)" opacity="0.6"/>
+                                <line x1="12" y1="12" x2="18" y2="18" stroke="var(--clr-warm-ivory)" stroke-width="1" opacity="0.4"/>
+                                <line x1="36" y1="12" x2="30" y2="18" stroke="var(--clr-warm-ivory)" stroke-width="1" opacity="0.4"/>
+                                <line x1="12" y1="36" x2="18" y2="30" stroke="var(--clr-warm-ivory)" stroke-width="1" opacity="0.4"/>
+                                <line x1="36" y1="36" x2="30" y2="30" stroke="var(--clr-warm-ivory)" stroke-width="1" opacity="0.4"/>
+                                <circle cx="10" cy="10" r="2" fill="var(--clr-warm-ivory)" opacity="0.5"/>
+                                <circle cx="38" cy="10" r="2" fill="var(--clr-warm-ivory)" opacity="0.5"/>
+                                <circle cx="10" cy="38" r="2" fill="var(--clr-warm-ivory)" opacity="0.5"/>
+                                <circle cx="38" cy="38" r="2" fill="var(--clr-warm-ivory)" opacity="0.5"/>
+                            </svg>
                         </div>
-                        <div class="step-connector" aria-hidden="true"></div>
-                        <div class="process-step reveal delay-2" role="listitem">
-                            <div class="step-node" aria-hidden="true"></div>
-                            <span class="step-label">Spatial Analysis</span>
+                        <h3 class="pipeline-step-title">Geospatial Engineering</h3>
+                        <p class="pipeline-step-desc">Schema design, feature services, and geodatabase architecture</p>
+                        <svg class="pipeline-connector" viewBox="0 0 40 4" aria-hidden="true"><line x1="0" y1="2" x2="40" y2="2"/></svg>
+                    </div>
+                    <!-- Step 03 -->
+                    <div class="pipeline-step reveal delay-2">
+                        <span class="pipeline-step-number">03</span>
+                        <div class="pipeline-step-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="14" stroke="var(--clr-amber)" stroke-width="1.5" fill="none" opacity="0.4"/>
+                                <circle cx="24" cy="24" r="8" stroke="var(--clr-amber)" stroke-width="1.5" fill="none" opacity="0.7"/>
+                                <circle cx="24" cy="24" r="2.5" fill="var(--clr-amber)" opacity="0.9"/>
+                                <line x1="24" y1="6" x2="24" y2="10" stroke="var(--clr-warm-ivory)" stroke-width="1" opacity="0.4"/>
+                                <line x1="24" y1="38" x2="24" y2="42" stroke="var(--clr-warm-ivory)" stroke-width="1" opacity="0.4"/>
+                                <line x1="6" y1="24" x2="10" y2="24" stroke="var(--clr-warm-ivory)" stroke-width="1" opacity="0.4"/>
+                                <line x1="38" y1="24" x2="42" y2="24" stroke="var(--clr-warm-ivory)" stroke-width="1" opacity="0.4"/>
+                            </svg>
                         </div>
-                        <div class="step-connector" aria-hidden="true"></div>
-                        <div class="process-step reveal delay-3" role="listitem">
-                            <div class="step-node" aria-hidden="true"></div>
-                            <span class="step-label">Visualization</span>
+                        <h3 class="pipeline-step-title">Spatial Analysis</h3>
+                        <p class="pipeline-step-desc">Suitability modeling, trade-area analytics, and pattern detection</p>
+                        <svg class="pipeline-connector" viewBox="0 0 40 4" aria-hidden="true"><line x1="0" y1="2" x2="40" y2="2"/></svg>
+                    </div>
+                    <!-- Step 04 -->
+                    <div class="pipeline-step reveal delay-3">
+                        <span class="pipeline-step-number">04</span>
+                        <div class="pipeline-step-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="14" width="28" height="20" rx="3" stroke="var(--clr-amber)" stroke-width="1.5" opacity="0.7"/>
+                                <polyline points="14,30 20,22 26,26 32,18 36,20" stroke="var(--clr-warm-ivory)" stroke-width="1.5" fill="none" opacity="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="20" cy="22" r="1.5" fill="var(--clr-amber)" opacity="0.8"/>
+                                <circle cx="32" cy="18" r="1.5" fill="var(--clr-amber)" opacity="0.8"/>
+                            </svg>
                         </div>
-                        <div class="step-connector" aria-hidden="true"></div>
-                        <div class="process-step reveal delay-3" role="listitem">
-                            <div class="step-node" aria-hidden="true"></div>
-                            <span class="step-label">Decision Ready</span>
+                        <h3 class="pipeline-step-title">Visualization</h3>
+                        <p class="pipeline-step-desc">Web maps, dashboards, and presentation-ready cartographic output</p>
+                        <svg class="pipeline-connector" viewBox="0 0 40 4" aria-hidden="true"><line x1="0" y1="2" x2="40" y2="2"/></svg>
+                    </div>
+                    <!-- Step 05 -->
+                    <div class="pipeline-step reveal delay-4">
+                        <span class="pipeline-step-number">05</span>
+                        <div class="pipeline-step-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24 10L38 20V36L24 42L10 36V20L24 10Z" stroke="var(--clr-amber)" stroke-width="1.5" fill="none" opacity="0.6"/>
+                                <path d="M24 20L32 25V33L24 37L16 33V25L24 20Z" stroke="var(--clr-warm-ivory)" stroke-width="1.2" fill="none" opacity="0.5"/>
+                                <circle cx="24" cy="28" r="2.5" fill="var(--clr-amber)" opacity="0.9"/>
+                            </svg>
                         </div>
+                        <h3 class="pipeline-step-title">Decision Ready</h3>
+                        <p class="pipeline-step-desc">Actionable intelligence with full documentation and audit trail</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Capabilities Section -->
-        <section id="capabilities" class="section" aria-labelledby="capabilities-heading">
+        <!-- ============================================================
+             CAPABILITIES — asymmetric editorial grid
+             ============================================================ -->
+        <section id="capabilities" class="section section-ivory" aria-labelledby="capabilities-heading">
             <div class="container">
                 <div class="section-header reveal">
                     <div class="section-badge">
@@ -124,36 +284,114 @@
                     <h2 id="capabilities-heading">Technical execution backed by enterprise delivery standards</h2>
                     <p class="section-desc">Enterprise GIS engineering, spatial geodatabase architecture, and analytical modeling designed for scalability</p>
                 </div>
-                <div id="capabilities-list" class="grid grid-3" role="list">
-                    <div class="capability-item reveal delay-1" role="listitem" tabindex="0">
-                        <h3>Location Analytics & Site Selection</h3>
-                        <p>Execute demographic, socioeconomic, and trade-area analysis. We build suitability models using ArcGIS Business Analyst to drive market expansion and site feasibility.</p>
+                <div class="capabilities-grid" role="list">
+
+                    <!-- Featured: Location Analytics -->
+                    <div class="capability-card is-featured reveal" role="listitem" tabindex="0">
+                        <div>
+                            <span class="capability-card-number">01 — Core</span>
+                            <h3>Location Analytics & Site Selection</h3>
+                            <p>Execute demographic, socioeconomic, and trade-area analysis. We build suitability models using ArcGIS Business Analyst to drive market expansion and site feasibility.</p>
+                        </div>
+                        <div class="capability-card-svg" aria-hidden="true">
+                            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="100" cy="100" r="80" stroke="var(--clr-amber)" stroke-width="1" opacity="0.3" stroke-dasharray="4 3"/>
+                                <circle cx="100" cy="100" r="55" stroke="var(--clr-amber)" stroke-width="1" opacity="0.4" stroke-dasharray="4 3"/>
+                                <circle cx="100" cy="100" r="30" stroke="var(--clr-amber)" stroke-width="1.5" opacity="0.6"/>
+                                <circle cx="100" cy="100" r="4" fill="var(--clr-amber)"/>
+                                <!-- Pin -->
+                                <path d="M97 88C97 84,100 80,100 80S103 84,103 88C103 92,100 95,100 95S97 92,97 88Z" fill="var(--clr-deep-olive)" opacity="0.7"/>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="capability-item reveal delay-2" role="listitem" tabindex="0">
+
+                    <!-- GIS Data Engineering -->
+                    <div class="capability-card reveal delay-1" role="listitem" tabindex="0">
+                        <span class="capability-card-number">02</span>
                         <h3>GIS Data Engineering & QA/QC</h3>
                         <p>Design schemas, deploy feature services, and enforce strict data validation across ArcGIS Pro, ArcGIS Enterprise, and QGIS environments.</p>
+                        <div class="capability-card-svg" aria-hidden="true">
+                            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30 40L60 25L90 40L60 55Z" stroke="var(--clr-olive-green)" stroke-width="1.2" fill="none" opacity="0.5"/>
+                                <path d="M30 55L60 40L90 55L60 70Z" stroke="var(--clr-olive-green)" stroke-width="1.2" fill="none" opacity="0.4"/>
+                                <path d="M30 70L60 55L90 70L60 85Z" stroke="var(--clr-amber)" stroke-width="1.2" fill="none" opacity="0.5"/>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="capability-item reveal delay-3" role="listitem" tabindex="0">
+
+                    <!-- Spatial Database -->
+                    <div class="capability-card reveal delay-2" role="listitem" tabindex="0">
+                        <span class="capability-card-number">03</span>
                         <h3>Spatial Database Management</h3>
                         <p>Architect and administer enterprise geodatabases. We handle spatial ETL, PostgreSQL/PostGIS, SQL Server integration, and metadata governance.</p>
+                        <div class="capability-card-svg" aria-hidden="true">
+                            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="60" cy="35" rx="30" ry="10" stroke="var(--clr-olive-green)" stroke-width="1.2" fill="none" opacity="0.5"/>
+                                <line x1="30" y1="35" x2="30" y2="75" stroke="var(--clr-olive-green)" stroke-width="1.2" opacity="0.4"/>
+                                <line x1="90" y1="35" x2="90" y2="75" stroke="var(--clr-olive-green)" stroke-width="1.2" opacity="0.4"/>
+                                <ellipse cx="60" cy="75" rx="30" ry="10" stroke="var(--clr-amber)" stroke-width="1.2" fill="none" opacity="0.5"/>
+                                <line x1="60" y1="85" x2="60" y2="100" stroke="var(--clr-amber)" stroke-width="1" opacity="0.3"/>
+                                <line x1="60" y1="100" x2="40" y2="108" stroke="var(--clr-olive-green)" stroke-width="1" opacity="0.3"/>
+                                <line x1="60" y1="100" x2="80" y2="108" stroke="var(--clr-olive-green)" stroke-width="1" opacity="0.3"/>
+                                <circle cx="40" cy="108" r="2" fill="var(--clr-olive-green)" opacity="0.5"/>
+                                <circle cx="80" cy="108" r="2" fill="var(--clr-olive-green)" opacity="0.5"/>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="capability-item reveal delay-1" role="listitem" tabindex="0">
+
+                    <!-- Enterprise GIS -->
+                    <div class="capability-card reveal delay-1" role="listitem" tabindex="0">
+                        <span class="capability-card-number">04</span>
                         <h3>Enterprise GIS Enablement</h3>
                         <p>Translate complex spatial workflows into accessible systems. We define symbology standards and deliver targeted stakeholder training.</p>
+                        <div class="capability-card-svg" aria-hidden="true">
+                            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="25" y="30" width="70" height="45" rx="3" stroke="var(--clr-olive-green)" stroke-width="1.2" fill="none" opacity="0.4"/>
+                                <rect x="30" y="40" width="60" height="35" rx="2" stroke="var(--clr-olive-green)" stroke-width="1" fill="none" opacity="0.3" transform="translate(2, -5)"/>
+                                <rect x="35" y="50" width="50" height="25" rx="2" stroke="var(--clr-amber)" stroke-width="1.2" fill="none" opacity="0.5" transform="translate(4, -10)"/>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="capability-item reveal delay-2" role="listitem" tabindex="0">
+
+                    <!-- Product Dev -->
+                    <div class="capability-card reveal delay-2" role="listitem" tabindex="0">
+                        <span class="capability-card-number">05</span>
                         <h3>Product Development & Automation</h3>
                         <p>Engineer native geospatial features and automate manual processes using Python, SQL, Arcade, and ArcGIS Notebooks.</p>
+                        <div class="capability-card-svg" aria-hidden="true">
+                            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="25" cy="60" r="8" stroke="var(--clr-olive-green)" stroke-width="1.2" fill="none" opacity="0.5"/>
+                                <line x1="33" y1="60" x2="50" y2="60" stroke="var(--clr-olive-green)" stroke-width="1.2" opacity="0.4"/>
+                                <polygon points="50,52 66,60 50,68" stroke="var(--clr-amber)" stroke-width="1.2" fill="none" opacity="0.6"/>
+                                <line x1="66" y1="60" x2="83" y2="60" stroke="var(--clr-olive-green)" stroke-width="1.2" opacity="0.4"/>
+                                <circle cx="95" cy="60" r="8" stroke="var(--clr-amber)" stroke-width="1.2" fill="none" opacity="0.5"/>
+                                <circle cx="95" cy="60" r="3" fill="var(--clr-amber)" opacity="0.5"/>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="capability-item reveal delay-3" role="listitem" tabindex="0">
+
+                    <!-- Infrastructure -->
+                    <div class="capability-card reveal delay-3" role="listitem" tabindex="0">
+                        <span class="capability-card-number">06</span>
                         <h3>Infrastructure & Utility Mapping</h3>
                         <p>Map pipeline and utility networks. We transform complex utility data into presentation-ready spatial deliverables and accurate network models.</p>
+                        <div class="capability-card-svg" aria-hidden="true">
+                            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="20,90 40,60 60,70 80,40 100,50" stroke="var(--clr-olive-green)" stroke-width="1.5" fill="none" opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="20,80 50,50 70,65 100,35" stroke="var(--clr-amber)" stroke-width="1" fill="none" opacity="0.3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3"/>
+                                <circle cx="40" cy="60" r="3" fill="var(--clr-olive-green)" opacity="0.6"/>
+                                <circle cx="80" cy="40" r="3" fill="var(--clr-olive-green)" opacity="0.6"/>
+                                <circle cx="60" cy="70" r="2" fill="var(--clr-amber)" opacity="0.5"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Solutions Section -->
+        <!-- ============================================================
+             SOLUTIONS — editorial two-column list
+             ============================================================ -->
         <section id="solutions" class="section section-surface" aria-labelledby="solutions-heading">
             <div class="container">
                 <div class="section-header reveal">
@@ -164,29 +402,51 @@
                     <h2 id="solutions-heading">Applying location intelligence to specific organizational requirements</h2>
                     <p class="section-desc">Custom spatial data solutions engineered to solve high-stakes challenges across core industry sectors</p>
                 </div>
-                <div id="solutions-content" class="grid grid-2">
-                    <div class="capability-item reveal delay-1">
-                        <h3>Real Estate & Retail</h3>
-                        <p>Assess global site feasibility and market potential. We process complex demographic and trade-area data to guide expansion strategies.</p>
+                <div class="solutions-list">
+                    <!-- Subtle SVG watermark -->
+                    <svg class="solutions-watermark" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="150" cy="150" r="120" stroke="var(--clr-olive-green)" stroke-width="1" opacity="0.5"/>
+                        <circle cx="150" cy="150" r="80" stroke="var(--clr-olive-green)" stroke-width="1" opacity="0.4"/>
+                        <circle cx="150" cy="150" r="40" stroke="var(--clr-olive-green)" stroke-width="1" opacity="0.3"/>
+                        <circle cx="150" cy="150" r="5" fill="var(--clr-olive-green)" opacity="0.3"/>
+                    </svg>
+
+                    <div class="solution-row reveal">
+                        <span class="solution-number">01</span>
+                        <div class="solution-content">
+                            <h3>Real Estate & Retail</h3>
+                            <p>Assess global site feasibility and market potential. We process complex demographic and trade-area data to guide expansion strategies.</p>
+                        </div>
                     </div>
-                    <div class="capability-item reveal delay-2">
-                        <h3>Public Sector & Community Planning</h3>
-                        <p>Support government agencies and commands with suitability modeling, environmental analysis, and spatial data governance.</p>
+                    <div class="solution-row reveal delay-1">
+                        <span class="solution-number">02</span>
+                        <div class="solution-content">
+                            <h3>Public Sector & Community Planning</h3>
+                            <p>Support government agencies and commands with suitability modeling, environmental analysis, and spatial data governance.</p>
+                        </div>
                     </div>
-                    <div class="capability-item reveal delay-1">
-                        <h3>Enterprise Technology</h3>
-                        <p>Deploy GIS natively within existing enterprise ecosystems. We integrate geospatial capabilities directly into platforms like Microsoft 365.</p>
+                    <div class="solution-row reveal delay-2">
+                        <span class="solution-number">03</span>
+                        <div class="solution-content">
+                            <h3>Enterprise Technology</h3>
+                            <p>Deploy GIS natively within existing enterprise ecosystems. We integrate geospatial capabilities directly into platforms like Microsoft 365.</p>
+                        </div>
                     </div>
-                    <div class="capability-item reveal delay-2">
-                        <h3>Infrastructure & Utilities</h3>
-                        <p>Establish accurate, validated systems of record for water, wastewater, and utility networks through rigorous spatial mapping.</p>
+                    <div class="solution-row reveal delay-3">
+                        <span class="solution-number">04</span>
+                        <div class="solution-content">
+                            <h3>Infrastructure & Utilities</h3>
+                            <p>Establish accurate, validated systems of record for water, wastewater, and utility networks through rigorous spatial mapping.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="section" aria-labelledby="experience-heading">
+        <!-- ============================================================
+             EXPERIENCE — amber left-border accent blocks
+             ============================================================ -->
+        <section id="experience" class="section section-ivory" aria-labelledby="experience-heading">
             <div class="container">
                 <div class="section-header reveal">
                     <div class="section-badge">
@@ -196,32 +456,41 @@
                     <h2 id="experience-heading">Ansight is built on a foundation of rigorous enterprise delivery</h2>
                     <p class="section-desc">Demonstrated operational consulting and spatial analysis delivered across high-consequence industries</p>
                 </div>
-                <div id="experience-list" class="grid grid-2">
-                    <article class="capability-item reveal delay-1">
-                        <span class="tag mb-2">Location Analytics</span>
-                        <h4>Global Real Estate Strategy</h4>
+
+                <p class="experience-intro reveal">Ansight's principal brings enterprise-grade GIS experience from engagements including the following:</p>
+
+                <div class="experience-grid">
+                    <article class="experience-block reveal delay-1">
+                        <span class="experience-tag">Location Analytics</span>
+                        <h3>Global Real Estate Strategy</h3>
+                        <p class="experience-role">Site Selection & Trade-Area Analysis</p>
                         <p>Executed rigorous site selection analytics across international markets, empowering transaction managers to independently assess site feasibility with high-fidelity spatial models.</p>
                     </article>
-                    <article class="capability-item reveal delay-2">
-                        <span class="tag mb-2">Enterprise GIS Enablement</span>
-                        <h4>Product Engineering & Automation</h4>
+                    <article class="experience-block reveal delay-2">
+                        <span class="experience-tag">Enterprise GIS Enablement</span>
+                        <h3>Product Engineering & Automation</h3>
+                        <p class="experience-role">GIS Infrastructure & Workflow Automation</p>
                         <p>Engineered native geospatial features and delivered enterprise-grade GIS infrastructure for utilities, retail, and logistics sectors, streamlining complex workflows.</p>
                     </article>
-                    <article class="capability-item reveal delay-1">
-                        <span class="tag mb-2">Spatial Research</span>
-                        <h4>Community Planning & Suitability</h4>
+                    <article class="experience-block reveal delay-1">
+                        <span class="experience-tag">Spatial Research</span>
+                        <h3>Community Planning & Suitability</h3>
+                        <p class="experience-role">Suitability Modeling & Spatial Research</p>
                         <p>Conducted advanced suitability modeling and spatial research to support localized community development and strategic site planning initiatives.</p>
                     </article>
-                    <article class="capability-item reveal delay-2">
-                        <span class="tag mb-2">Data Architecture</span>
-                        <h4>Environmental Engineering Mapping</h4>
+                    <article class="experience-block reveal delay-2">
+                        <span class="experience-tag">Data Architecture</span>
+                        <h3>Environmental Engineering Mapping</h3>
+                        <p class="experience-role">Infrastructure Data Management</p>
                         <p>Provided critical spatial mapping and infrastructure data management to support large-scale water and wastewater engineering projects.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- ============================================================
+             CONTACT — improved form + founder card
+             ============================================================ -->
         <section id="contact" class="section section-surface" aria-labelledby="contact-heading">
             <div class="container">
                 <div class="section-header reveal">
@@ -229,16 +498,16 @@
                         <span class="badge-dot" aria-hidden="true"></span>
                         <span>Contact Us</span>
                     </div>
-                    <h2 id="contact-heading" data-config="final-cta-headline">Have a location-based challenge? Let's connect</h2>
-                    <p class="section-desc" data-config="final-cta-sub">Ansight is positioned to support target agencies, localized commands, and enterprise clients with rigorous spatial data management and location intelligence</p>
+                    <h2 id="contact-heading" data-config="final-cta-headline">Have a geospatial challenge?</h2>
+                    <p class="section-desc" data-config="final-cta-sub">Start a conversation with Ansight's principal</p>
                 </div>
                 <div class="grid grid-2 contact-grid">
                     <div class="contact-info reveal" style="display: flex; flex-direction: column; justify-content: center;">
-                        <article class="card contact-card-founder" aria-labelledby="founder-name">
-                            <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: var(--clr-amber); opacity: 0.15; filter: blur(40px); border-radius: 50%;"></div>
+                        <article class="contact-card-founder" aria-labelledby="founder-name">
+                            <div class="founder-glow" aria-hidden="true"></div>
                             <h3 id="founder-name" data-config="founder-name" style="color: #FFFFFF; margin-bottom: var(--space-1); font-size: var(--font-size-2xl);">Adeyinka Adekunle</h3>
                             <p aria-label="Role" data-config="founder-role" style="font-size: var(--font-size-sm); color: var(--clr-warm-ivory); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-4); border-bottom: 1px solid rgba(232, 222, 192, 0.2); padding-bottom: var(--space-4); font-weight: var(--font-weight-semibold);">Principal | Ansight</p>
-                            
+
                             <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
                                 <li style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-3);">
                                     <span style="color: var(--clr-amber); font-size: 1.1rem;">◈</span> <span style="font-weight: 500; color: #FFFFFF;">GIS Consulting & Location Intelligence</span>
@@ -259,7 +528,7 @@
                         </article>
                     </div>
                     <div class="contact-form-container reveal delay-2">
-                        <form class="card" aria-label="Project Inquiry Form" style="background: var(--clr-ivory-tint); border: 1px solid var(--clr-border-card); padding: var(--space-8); border-radius: var(--radius-xl);">
+                        <form class="contact-form-card" aria-label="Project Inquiry Form">
                             <div class="form-group">
                                 <label class="form-label" for="name">Name <span aria-hidden="true" style="color:var(--clr-amber);">*</span></label>
                                 <input type="text" id="name" name="name" class="form-control" required aria-required="true" placeholder="Your full name">
@@ -272,7 +541,7 @@
                                 <label class="form-label" for="reqs">Project Requirements / Spatial Data Challenges <span aria-hidden="true" style="color:var(--clr-amber);">*</span></label>
                                 <textarea id="reqs" name="reqs" class="form-control" rows="5" required aria-required="true" placeholder="Tell us about your spatial data, site selection, or GIS analysis goals..."></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;" data-config="final-cta-btn">Start a Conversation</button>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;" data-config="final-cta-btn">Start a Conversation →</button>
                         </form>
                     </div>
                 </div>

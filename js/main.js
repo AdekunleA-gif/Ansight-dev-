@@ -1,4 +1,5 @@
-// Ansight Main JavaScript - Self-contained & CORS-safe for file:/// and HTTP environments
+// Ansight Main JavaScript — Premium Art-Directed Edition
+// Self-contained & CORS-safe for file:/// and HTTP environments
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Enable JS animations gracefully
@@ -121,5 +122,83 @@ document.addEventListener('DOMContentLoaded', () => {
         // Fallback for older browsers
         const revealElements = document.querySelectorAll('.reveal');
         revealElements.forEach(el => el.classList.add('active'));
+    }
+
+    // 7. SVG Line Draw Animation on Scroll
+    const drawLines = document.querySelectorAll('.svg-draw-line');
+    if (drawLines.length > 0 && 'IntersectionObserver' in window) {
+        // Measure actual path lengths and set dasharray/offset
+        drawLines.forEach(line => {
+            let length;
+            if (line.getTotalLength) {
+                length = line.getTotalLength();
+            } else {
+                // Fallback for <line> elements
+                const x1 = parseFloat(line.getAttribute('x1') || 0);
+                const y1 = parseFloat(line.getAttribute('y1') || 0);
+                const x2 = parseFloat(line.getAttribute('x2') || 0);
+                const y2 = parseFloat(line.getAttribute('y2') || 0);
+                length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+            }
+            line.style.strokeDasharray = length;
+            line.style.strokeDashoffset = length;
+        });
+
+        const drawObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Stagger draw with delays
+                    const lines = entry.target.querySelectorAll('.svg-draw-line');
+                    lines.forEach((line, i) => {
+                        setTimeout(() => {
+                            line.style.transition = 'stroke-dashoffset 1.8s cubic-bezier(0.16, 1, 0.3, 1)';
+                            line.style.strokeDashoffset = '0';
+                        }, i * 150);
+                    });
+                    drawObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        // Observe parent containers of draw lines
+        const heroSvg = document.querySelector('.hero-svg-canvas');
+        if (heroSvg) {
+            drawObserver.observe(heroSvg);
+        }
+    }
+
+    // 8. Pipeline connector draw animation
+    const pipelineSection = document.querySelector('#process');
+    if (pipelineSection && 'IntersectionObserver' in window) {
+        const pipelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const connectors = pipelineSection.querySelectorAll('.pipeline-connector line');
+                    connectors.forEach((line, i) => {
+                        const length = 40;
+                        line.style.strokeDasharray = length;
+                        line.style.strokeDashoffset = length;
+                        setTimeout(() => {
+                            line.style.transition = 'stroke-dashoffset 1s cubic-bezier(0.16, 1, 0.3, 1)';
+                            line.style.strokeDashoffset = '0';
+                        }, 400 + i * 300);
+                    });
+                    pipelineObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        pipelineObserver.observe(pipelineSection);
+    }
+
+    // 9. Respect prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (prefersReducedMotion.matches) {
+        // Immediately show all reveals
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+        // Immediately draw all lines
+        document.querySelectorAll('.svg-draw-line').forEach(line => {
+            line.style.strokeDashoffset = '0';
+            line.style.transition = 'none';
+        });
     }
 });
