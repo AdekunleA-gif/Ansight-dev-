@@ -22,17 +22,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mainNav = document.getElementById('main-nav');
     if (mobileMenuToggle && mainNav) {
-        mobileMenuToggle.addEventListener('click', () => {
-            const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-            mobileMenuToggle.setAttribute('aria-expanded', String(!isExpanded));
-            mainNav.classList.toggle('is-open');
+        const toggleMenu = (open) => {
+            const shouldOpen = open !== undefined ? open : !mainNav.classList.contains('is-open');
+            mobileMenuToggle.setAttribute('aria-expanded', String(shouldOpen));
+            mainNav.classList.toggle('is-open', shouldOpen);
+        };
+
+        mobileMenuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
         });
 
-        // Close mobile menu on click of nav link
+        // Close mobile menu on click of nav link or CTA
         mainNav.addEventListener('click', (e) => {
-            if (e.target.classList.contains('nav-item')) {
-                mainNav.classList.remove('is-open');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            if (e.target.closest('.nav-item') || e.target.closest('.btn')) {
+                toggleMenu(false);
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (mainNav.classList.contains('is-open') && !mainNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                toggleMenu(false);
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mainNav.classList.contains('is-open')) {
+                toggleMenu(false);
+                mobileMenuToggle.focus();
             }
         });
     }
@@ -199,6 +218,79 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.svg-draw-line').forEach(line => {
             line.style.strokeDashoffset = '0';
             line.style.transition = 'none';
+        });
+    }
+
+    // 10. Contact Form AJAX Submission (Web3Forms)
+    const contactForm = document.querySelector('.contact-form-card');
+    if (contactForm) {
+        let statusMessage = contactForm.querySelector('.form-status');
+        if (!statusMessage) {
+            statusMessage = document.createElement('div');
+            statusMessage.className = 'form-status';
+            statusMessage.style.display = 'none';
+            statusMessage.style.marginTop = 'var(--space-4)';
+            statusMessage.style.padding = 'var(--space-3) var(--space-4)';
+            statusMessage.style.borderRadius = 'var(--radius-md)';
+            statusMessage.style.fontSize = 'var(--font-size-sm)';
+            statusMessage.style.textAlign = 'center';
+            statusMessage.style.fontWeight = '500';
+            statusMessage.setAttribute('role', 'alert');
+            contactForm.appendChild(statusMessage);
+        }
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn ? submitBtn.textContent : '';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+            }
+            statusMessage.style.display = 'none';
+
+            const formData = new FormData(contactForm);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                });
+
+                if (response.status === 200) {
+                    contactForm.reset();
+                    statusMessage.textContent = 'Thank you! Your message has been sent successfully.';
+                    statusMessage.style.display = 'block';
+                    statusMessage.style.color = '#2d6a4f';
+                    statusMessage.style.backgroundColor = 'rgba(45, 106, 79, 0.1)';
+                    statusMessage.style.border = '1px solid rgba(45, 106, 79, 0.25)';
+                } else {
+                    const data = await response.json().catch(() => null);
+                    statusMessage.textContent = (data && data.message) ? data.message : 'Something went wrong. Please try again.';
+                    statusMessage.style.display = 'block';
+                    statusMessage.style.color = '#b91c1c';
+                    statusMessage.style.backgroundColor = 'rgba(185, 28, 28, 0.1)';
+                    statusMessage.style.border = '1px solid rgba(185, 28, 28, 0.25)';
+                }
+            } catch (error) {
+                statusMessage.textContent = 'Something went wrong. Please check your connection and try again.';
+                statusMessage.style.display = 'block';
+                statusMessage.style.color = '#b91c1c';
+                statusMessage.style.backgroundColor = 'rgba(185, 28, 28, 0.1)';
+                statusMessage.style.border = '1px solid rgba(185, 28, 28, 0.25)';
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+                }
+            }
         });
     }
 });
