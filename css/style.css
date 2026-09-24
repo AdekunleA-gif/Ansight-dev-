@@ -55,8 +55,8 @@
     --font-size-xl: 1.25rem;
     --font-size-2xl: 1.5rem;
     --font-size-3xl: 2rem;
-    --font-size-4xl: clamp(1.75rem, 3.5vw, 2.75rem);   /* H2 */
-    --font-size-5xl: clamp(3rem, 6vw, 5rem);            /* H1 hero */
+    --font-size-4xl: clamp(1.625rem, 4vw, 2.75rem);    /* H2 */
+    --font-size-5xl: clamp(2.25rem, 6.5vw, 4.5rem);   /* H1 hero */
 
     --font-weight-light: 300;
     --font-weight-regular: 400;
@@ -266,7 +266,7 @@ a:hover { color: var(--clr-accent); }
     border-radius: var(--radius-md);
     color: var(--clr-dark-olive-brown);
     font-family: var(--font-family-sans);
-    font-size: var(--font-size-base);
+    font-size: 16px; /* 16px minimum prevents iOS viewport auto-zoom */
     transition: all var(--transition-fast);
 }
 .form-control:focus {
@@ -283,8 +283,8 @@ a:hover { color: var(--clr-accent); }
     max-width: var(--container-width-xl);
     margin-left: auto;
     margin-right: auto;
-    padding-left: var(--space-6);
-    padding-right: var(--space-6);
+    padding-left: clamp(var(--space-4), 4vw, var(--space-6));
+    padding-right: clamp(var(--space-4), 4vw, var(--space-6));
 }
 
 /* Sections — generous breathing room */

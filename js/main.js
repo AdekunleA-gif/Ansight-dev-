@@ -22,17 +22,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mainNav = document.getElementById('main-nav');
     if (mobileMenuToggle && mainNav) {
-        mobileMenuToggle.addEventListener('click', () => {
-            const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-            mobileMenuToggle.setAttribute('aria-expanded', String(!isExpanded));
-            mainNav.classList.toggle('is-open');
+        const toggleMenu = (open) => {
+            const shouldOpen = open !== undefined ? open : !mainNav.classList.contains('is-open');
+            mobileMenuToggle.setAttribute('aria-expanded', String(shouldOpen));
+            mainNav.classList.toggle('is-open', shouldOpen);
+        };
+
+        mobileMenuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
         });
 
-        // Close mobile menu on click of nav link
+        // Close mobile menu on click of nav link or CTA
         mainNav.addEventListener('click', (e) => {
-            if (e.target.classList.contains('nav-item')) {
-                mainNav.classList.remove('is-open');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            if (e.target.closest('.nav-item') || e.target.closest('.btn')) {
+                toggleMenu(false);
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (mainNav.classList.contains('is-open') && !mainNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                toggleMenu(false);
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mainNav.classList.contains('is-open')) {
+                toggleMenu(false);
+                mobileMenuToggle.focus();
             }
         });
     }
