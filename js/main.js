@@ -201,4 +201,77 @@ document.addEventListener('DOMContentLoaded', () => {
             line.style.transition = 'none';
         });
     }
+
+    // 10. Contact Form AJAX Submission (Web3Forms)
+    const contactForm = document.querySelector('.contact-form-card');
+    if (contactForm) {
+        let statusMessage = contactForm.querySelector('.form-status');
+        if (!statusMessage) {
+            statusMessage = document.createElement('div');
+            statusMessage.className = 'form-status';
+            statusMessage.style.display = 'none';
+            statusMessage.style.marginTop = 'var(--space-4)';
+            statusMessage.style.padding = 'var(--space-3) var(--space-4)';
+            statusMessage.style.borderRadius = 'var(--radius-md)';
+            statusMessage.style.fontSize = 'var(--font-size-sm)';
+            statusMessage.style.textAlign = 'center';
+            statusMessage.style.fontWeight = '500';
+            statusMessage.setAttribute('role', 'alert');
+            contactForm.appendChild(statusMessage);
+        }
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn ? submitBtn.textContent : '';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+            }
+            statusMessage.style.display = 'none';
+
+            const formData = new FormData(contactForm);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                });
+
+                if (response.status === 200) {
+                    contactForm.reset();
+                    statusMessage.textContent = 'Thank you! Your message has been sent successfully.';
+                    statusMessage.style.display = 'block';
+                    statusMessage.style.color = '#2d6a4f';
+                    statusMessage.style.backgroundColor = 'rgba(45, 106, 79, 0.1)';
+                    statusMessage.style.border = '1px solid rgba(45, 106, 79, 0.25)';
+                } else {
+                    const data = await response.json().catch(() => null);
+                    statusMessage.textContent = (data && data.message) ? data.message : 'Something went wrong. Please try again.';
+                    statusMessage.style.display = 'block';
+                    statusMessage.style.color = '#b91c1c';
+                    statusMessage.style.backgroundColor = 'rgba(185, 28, 28, 0.1)';
+                    statusMessage.style.border = '1px solid rgba(185, 28, 28, 0.25)';
+                }
+            } catch (error) {
+                statusMessage.textContent = 'Something went wrong. Please check your connection and try again.';
+                statusMessage.style.display = 'block';
+                statusMessage.style.color = '#b91c1c';
+                statusMessage.style.backgroundColor = 'rgba(185, 28, 28, 0.1)';
+                statusMessage.style.border = '1px solid rgba(185, 28, 28, 0.25)';
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+                }
+            }
+        });
+    }
 });
