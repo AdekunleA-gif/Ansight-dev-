@@ -28,6 +28,7 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
 </head>
 
 <body>
@@ -40,13 +41,14 @@
 
     <header class="site-header" role="banner">
         <div class="nav-container">
-            <a href="#home" class="logo" style="color: var(--clr-deep-olive); font-weight: 700; font-size: 1.5rem;"
-                aria-label="Ansight Home">
-                <span data-config="company-name">Ansight</span><span style="color: var(--clr-amber);">.</span>
+            <a href="#home" class="logo" aria-label="Ansight Home">
+                <img src="assets/images/logo.png" alt="Ansight Logo" class="logo-img">
+                <span data-config="company-name">Ansight</span>
             </a>
             <nav id="main-nav" class="main-nav" aria-label="Primary Navigation">
                 <div class="nav-links">
                     <a href="#home" class="nav-item active">Home</a>
+                    <a href="about.html" class="nav-item">About</a>
                     <a href="#process" class="nav-item">Process</a>
                     <a href="#capabilities" class="nav-item">Capabilities</a>
                     <a href="#solutions" class="nav-item">Solutions</a>
@@ -384,12 +386,11 @@
                 </div>
                 <div class="capabilities-grid" role="list">
 
-                    <!-- Location Analytics -->
+                    <!-- AI Driven Location Analytics -->
                     <div class="capability-card reveal" role="listitem" tabindex="0">
                         <span class="capability-card-number">01</span>
-                        <h3>Location Analytics & Site Selection</h3>
-                        <p>Execute demographic, socioeconomic, and trade-area analysis. We build suitability models
-                            using ArcGIS Business Analyst to drive market expansion and site feasibility.</p>
+                        <h3>AI driven location analytics</h3>
+                        <p>transform geographic data into actionable business intelligence by decoding spatial patterns and consumer mobility</p>
                         <div class="capability-card-svg" aria-hidden="true">
                             <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="60" cy="60" r="48" stroke="var(--clr-amber)" stroke-width="1" opacity="0.3"
@@ -651,12 +652,17 @@
                         style="display: flex; flex-direction: column; justify-content: center;">
                         <article class="contact-card-founder" aria-labelledby="founder-name">
                             <div class="founder-glow" aria-hidden="true"></div>
-                            <h3 id="founder-name" data-config="founder-name"
-                                style="color: #FFFFFF; margin-bottom: var(--space-1); font-size: var(--font-size-2xl);">
-                                Adeyinka Adekunle</h3>
-                            <p aria-label="Role" data-config="founder-role"
-                                style="font-size: var(--font-size-sm); color: var(--clr-warm-ivory); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-4); border-bottom: 1px solid rgba(232, 222, 192, 0.2); padding-bottom: var(--space-4); font-weight: var(--font-weight-semibold);">
-                                Principal | Ansight</p>
+                            <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4); border-bottom: 1px solid rgba(232, 222, 192, 0.2); padding-bottom: var(--space-4);">
+                                <img src="assets/images/CEO.jpeg" alt="Adeyinka Adekunle" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: top; border: 2px solid var(--clr-amber); flex-shrink: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.25);">
+                                <div>
+                                    <h3 id="founder-name" data-config="founder-name"
+                                        style="color: #FFFFFF; margin-bottom: 2px; font-size: var(--font-size-xl);">
+                                        Adeyinka Adekunle</h3>
+                                    <p aria-label="Role" data-config="founder-role"
+                                        style="font-size: var(--font-size-xs); color: var(--clr-warm-ivory); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0; font-weight: var(--font-weight-semibold);">
+                                        Principal | Ansight</p>
+                                </div>
+                            </div>
 
                             <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
                                 <li
@@ -677,12 +683,6 @@
                                         href="tel:+19735671317" style="color: var(--clr-warm-ivory);">+1 (973)
                                         567-1317</a>
                                 </li>
-                                <li
-                                    style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-3);">
-                                    <span style="color: var(--clr-amber); font-size: 1.1rem;">🌐</span> <a
-                                        href="https://www.ansightco.com" target="_blank" rel="noopener noreferrer"
-                                        style="color: var(--clr-warm-ivory);">www.ansightco.com</a>
-                                </li>
                                 <li style="display: flex; align-items: center; gap: var(--space-3);">
                                     <span style="color: var(--clr-amber); font-size: 1.1rem;">in</span> <a
                                         href="https://www.linkedin.com/in/adeyinka-adekunle-37162a155/" target="_blank"
@@ -694,7 +694,7 @@
                     </div>
                     <div class="contact-form-container reveal delay-2">
                         <form class="contact-form-card" aria-label="Project Inquiry Form">
-                            <input type="hidden" name="access_key" value="b83094d8-07f9-4f3a-a549-eb72aa552661">
+                            <input type="hidden" name="access_key" value="0bf2f011-22d9-45a0-a759-01ee8238dda2">
                             <div class="form-group">
                                 <label class="form-label" for="name">Name <span aria-hidden="true"
                                         style="color:var(--clr-amber);">*</span></label>

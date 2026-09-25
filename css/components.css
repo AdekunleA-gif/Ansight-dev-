@@ -40,6 +40,29 @@
     padding: 0 var(--space-6);
 }
 
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    text-decoration: none;
+    color: var(--clr-deep-olive);
+    font-weight: 700;
+    font-size: 1.45rem;
+    transition: transform var(--transition-fast);
+}
+.logo:hover {
+    transform: translateY(-1px);
+}
+.logo-img {
+    height: 38px;
+    width: 38px;
+    border-radius: var(--radius-sm);
+    object-fit: contain;
+    background-color: var(--clr-ivory);
+    display: block;
+    box-shadow: 0 1px 4px rgba(63, 74, 35, 0.08);
+}
+
 .nav-item {
     color: var(--clr-dark-olive-brown);
     font-weight: var(--font-weight-medium);
@@ -614,6 +637,30 @@
 }
 .contact-card-founder:hover {
     border-color: var(--clr-amber);
+}
+
+.founder-card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    align-items: center;
+}
+@media (min-width: 768px) {
+    .founder-card-grid {
+        grid-template-columns: 240px 1fr;
+    }
+}
+.founder-portrait {
+    width: 100%;
+    max-width: 260px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: var(--radius-lg);
+    border: 2px solid rgba(201, 138, 29, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+    display: block;
 }
 .contact-card-founder .founder-glow {
     position: absolute;

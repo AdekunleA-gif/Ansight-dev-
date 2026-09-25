@@ -85,10 +85,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const navItems = document.querySelectorAll('.nav-links .nav-item');
     const sections = Array.from(navItems).map(item => {
         const id = item.getAttribute('href');
-        return document.querySelector(id);
+        if (id && id.startsWith('#') && id.length > 1) {
+            try {
+                return document.querySelector(id);
+            } catch (e) {
+                return null;
+            }
+        }
+        return null;
     }).filter(Boolean);
 
     const updateScrollSpy = () => {
+        if (sections.length === 0) return;
         const scrollPos = window.scrollY + 180;
         let currentSectionId = '';
 
@@ -100,23 +108,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        if (!currentSectionId && window.scrollY < 200) {
+        if (!currentSectionId && window.scrollY < 200 && document.querySelector('#home')) {
             currentSectionId = '#home';
         }
 
         if (currentSectionId) {
             navItems.forEach(item => {
-                if (item.getAttribute('href') === currentSectionId) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
+                const href = item.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    if (href === currentSectionId) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
                 }
             });
         }
     };
 
-    window.addEventListener('scroll', updateScrollSpy, { passive: true });
-    updateScrollSpy();
+    if (sections.length > 0) {
+        window.addEventListener('scroll', updateScrollSpy, { passive: true });
+        updateScrollSpy();
+    }
 
     // 6. Intersection Observer for Scroll Reveals
     if ('IntersectionObserver' in window) {
