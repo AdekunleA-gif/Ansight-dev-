@@ -20,7 +20,7 @@ export const founderInfo = {
 };
 
 export const navigation = [
-    { label: "About", href: "about.html" },
+    // { label: "About", href: "about.html" }, // Hidden — not yet live
     { label: "Capabilities", href: "#capabilities" },
     { label: "Solutions", href: "#solutions" },
     { label: "Experience", href: "#experience" },
