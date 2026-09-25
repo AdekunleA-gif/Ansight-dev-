@@ -34,8 +34,8 @@ export const socialLinks = [
 
 export const capabilitiesData = [
     {
-        title: "Location Analytics & Site Selection",
-        desc: "Execute demographic, socioeconomic, and trade-area analysis. We build suitability models using ArcGIS Business Analyst to drive market expansion and site feasibility."
+        title: "AI driven location analytics",
+        desc: "Transform geographic data into actionable business intelligence by decoding spatial patterns and consumer mobility"
     },
     {
         title: "GIS Data Engineering & QA/QC",
