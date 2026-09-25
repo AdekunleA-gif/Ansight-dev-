@@ -718,14 +718,16 @@
     stroke-dashoffset: 0;
 }
 
-/* Node pulse */
+/* Node pulse — uses scale transform (cross-browser safe) */
 @keyframes node-pulse {
-    0% { r: 3; opacity: 1; }
-    50% { r: 5; opacity: 0.6; }
-    100% { r: 3; opacity: 1; }
+    0%   { transform: scale(1);   opacity: 1; }
+    50%  { transform: scale(1.5); opacity: 0.6; }
+    100% { transform: scale(1);   opacity: 1; }
 }
 .svg-node-pulse {
     animation: node-pulse 3s ease-in-out infinite;
+    transform-origin: center;
+    transform-box: fill-box;
 }
 
 /* Existing pulse for step-nodes */
@@ -765,6 +767,20 @@
 /* ----------------------------------------------------------------------
    RESPONSIVE — mobile & tablet refinements
    ---------------------------------------------------------------------- */
+/* --- Tablet: 768px – 859px --- */
+@media (min-width: 768px) and (max-width: 859px) {
+    /* Contact grid: 2-col on tablet is too tight — stack it */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+    }
+    /* Experience grid stays 2-col but tighten */
+    .experience-grid {
+        gap: var(--space-6);
+    }
+}
+
+/* --- Below 860px (mobile + most tablets) --- */
 @media (max-width: 859px) {
     .hero-section {
         min-height: auto;
@@ -788,8 +804,14 @@
         max-width: 440px;
         margin: 0 auto;
     }
+    /* Contact grid stacks below 860 */
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-8);
+    }
 }
 
+/* --- Mobile: below 768px --- */
 @media (max-width: 767px) {
     .section {
         padding: var(--space-16) 0;
@@ -809,6 +831,7 @@
         padding: 4px 12px;
         margin-bottom: var(--space-4);
     }
+    /* Hero stats: stack on mobile */
     .hero-stats {
         grid-template-columns: 1fr;
         gap: var(--space-3);
@@ -833,6 +856,7 @@
     .hero-stat-label {
         font-size: 0.75rem;
     }
+    /* Pipeline: horizontal icon + text layout */
     .pipeline-grid {
         gap: var(--space-8);
     }
@@ -863,6 +887,11 @@
     .pipeline-step-number {
         display: none;
     }
+    /* Capabilities: single column */
+    .capabilities-grid {
+        grid-template-columns: 1fr;
+    }
+    /* Solutions */
     .solution-row {
         grid-template-columns: 50px 1fr;
         gap: var(--space-4);
@@ -877,11 +906,16 @@
     .solutions-watermark {
         display: none;
     }
+    /* Capability cards */
     .capability-card {
         padding: var(--space-6);
     }
     .capability-card h3 {
         font-size: var(--font-size-lg);
+    }
+    /* Experience: single column */
+    .experience-grid {
+        grid-template-columns: 1fr;
     }
     .experience-block {
         padding: var(--space-5) var(--space-6);
@@ -889,6 +923,7 @@
     .experience-block h3 {
         font-size: var(--font-size-lg);
     }
+    /* Contact */
     .contact-card-founder {
         padding: var(--space-6);
     }
@@ -899,6 +934,7 @@
         word-break: break-word;
         overflow-wrap: anywhere;
     }
+    /* Footer keyword banner */
     .keyword-footer-banner {
         padding: var(--space-4) var(--space-3);
         font-size: 0.7rem;
@@ -906,8 +942,13 @@
     .keyword-banner-inner {
         gap: var(--space-2) var(--space-3);
     }
+    /* Section headings scale down */
+    .section-header h2 {
+        font-size: clamp(1.4rem, 5vw, 2rem);
+    }
 }
 
+/* --- Small phones: below 480px --- */
 @media (max-width: 480px) {
     .site-header {
         top: 10px;
@@ -917,10 +958,19 @@
         height: 60px;
         padding: 0 var(--space-4);
     }
+    /* Shrink logo text on very small screens */
+    .logo {
+        font-size: 1.1rem;
+    }
+    .logo-img {
+        height: 30px;
+        width: 30px;
+    }
     .main-nav {
         top: 68px;
         padding: var(--space-4);
     }
+    /* Hero CTA buttons full width */
     .hero-actions {
         flex-direction: column;
         align-items: stretch;
@@ -933,6 +983,11 @@
         text-align: center;
         justify-content: center;
     }
+    /* Hide hero SVG on very small screens to save space */
+    .hero-svg-container {
+        display: none;
+    }
+    /* Cards */
     .capability-card {
         padding: var(--space-5) var(--space-4);
     }
@@ -943,10 +998,32 @@
         padding: var(--space-5) var(--space-4);
     }
     .experience-block {
-        padding: var(--space-4) var(--space-4);
+        padding: var(--space-4);
     }
     .form-group {
         margin-bottom: var(--space-4);
+    }
+    /* Submit button full width */
+    .contact-form-card .btn {
+        width: 100%;
+        padding: var(--space-4);
+    }
+    /* Founder contact card info stacks cleanly */
+    .contact-card-founder ul li {
+        flex-wrap: wrap;
+    }
+    /* Keyword banner: wrap and center */
+    .keyword-banner-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-2);
+    }
+    .keyword-banner-inner .bullet {
+        display: none;
+    }
+    /* Footer text */
+    footer p {
+        font-size: var(--font-size-xs) !important;
     }
 }
 
