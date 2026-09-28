@@ -45,22 +45,25 @@
     align-items: center;
     gap: var(--space-2);
     text-decoration: none;
-    color: var(--clr-deep-olive);
-    font-weight: 700;
-    font-size: 1.45rem;
-    transition: transform var(--transition-fast);
+    transition: opacity var(--transition-fast);
 }
 .logo:hover {
-    transform: translateY(-1px);
+    opacity: 0.85;
 }
 .logo-img {
-    height: 38px;
-    width: 38px;
-    border-radius: var(--radius-sm);
+    height: 44px;
+    width: 44px;
     object-fit: contain;
-    background-color: var(--clr-ivory);
     display: block;
-    box-shadow: 0 1px 4px rgba(63, 74, 35, 0.08);
+    flex-shrink: 0;
+    mix-blend-mode: multiply;
+}
+.logo-title {
+    font-family: var(--font-family-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--clr-deep-olive);
+    letter-spacing: -0.01em;
 }
 
 .nav-item {

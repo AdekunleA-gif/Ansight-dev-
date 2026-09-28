@@ -2,8 +2,8 @@
 
 export const companyInfo = {
     name: "Ansight",
-    tagline: "Geospatial Analytics & Location Intelligence",
-    description: "Ansight provides geospatial analytics, data engineering, and location intelligence to enterprise and public-sector organizations. We solve complex spatial challenges with rigorous QA/QC and automated workflows.",
+    tagline: "AI Location Intelligence & Geospatial Analytics",
+    description: "Ansight provides AI location intelligence, geospatial analytics, and spatial data engineering to enterprise and public-sector organizations. We solve complex spatial challenges with rigorous QA/QC and automated workflows.",
     founded: "2026",
     location: "Bloomfield, New Jersey",
     naicsCodes: "541370, 541511, 541690",
@@ -15,7 +15,7 @@ export const founderInfo = {
     name: "Adeyinka Adekunle",
     role: "Founder / Principal Consultant",
     bio: "Combining platform engineering with operational delivery, Adeyinka founded Ansight to provide organizations with highly accurate, decision-ready spatial data. He holds an M.S. in GIS from Tennessee State University, where he maintained a perfect 4.0/4.0 institutional GPA throughout the entirety of his advanced master's level coursework.",
-    email: "adekunledeyinka@gmail.com",
+    email: "adeyinka@ansightco.com",
     phone: "443-815-1537"
 };
 
